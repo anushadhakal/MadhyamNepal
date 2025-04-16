@@ -71,11 +71,15 @@
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
   border-color: var(--card-accent-color);
 }
+
+/* Fixed icon wrapper to ensure perfect circles */
 .iconWrapper {
-  height: 60px;
   width: 60px;
+  height: 60px;
+  min-width: 60px;
+  min-height: 60px;
   border-radius: 50%;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 1.5rem;
@@ -83,28 +87,21 @@
   color: white;
   transition: transform 0.4s ease;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  position: relative;
+  flex-shrink: 0;
 }
 
-.iconContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-}
-
-/* Fix for SVG icons to make them perfectly square */
-.iconContainer svg {
+.iconWrapper svg {
   width: 24px !important;
   height: 24px !important;
+  min-width: 24px !important;  
+  min-height: 24px !important;
   display: block;
 }
 
 .card:hover .iconWrapper {
   transform: scale(1.1);
 }
-/* Bubble animation styles */
+
 .bubbles {
   position: absolute;
   top: 0;
@@ -202,7 +199,7 @@
   margin: 0 auto;
   transition: all 0.3s ease;
   border-radius: 20px;
-  margin-top: auto; /* Push to bottom of flex container */
+  margin-top: auto;
 }
 
 .learnMore:hover {
@@ -250,6 +247,8 @@
   
   .iconWrapper {
     width: 60px;
-    height: 35px;
+    height: 60px;
+    min-width: 60px;
+    min-height: 60px;
   }
 }

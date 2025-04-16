@@ -7,6 +7,7 @@ import  Home   from './Pages/Home/Home'
 import About from './Pages/About/About'
 import Services from './Services/Services'
 import Contact from './Contact/Contact'
+import Team from './Team/Team'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,6 +18,7 @@ function App() {
     <Home/>
     <About/>
     <Services/>
+    <Team/>
     <Contact/>
       </>
   )

@@ -1,154 +1,199 @@
 .aboutContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 3rem 4rem;
-    background-color: #FAFAFA;
-    font-family: 'Inter', sans-serif;
-    position: relative;
-    overflow: hidden;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 4rem;
+  background-color: #FAFAFA;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+}
+
+.aboutHeader {
+  width: 100%;
+  max-width: 1400px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.aboutHeader h2 {
+  font-size: 2.5rem;
+  color: #78C36A;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.aboutHeader h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: #78C36A;
+  border-radius: 2px;
+}
+
+.aboutHeader h2 span {
+  color: #1E1E1E;
+  font-weight: bold;
+}
+
+.aboutContent {
+  max-width: 1400px; /* Match the home section max-width */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4rem;
+  width: 100%;
+  z-index: 2;
+}
+
+.imageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.image {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 16px 30px rgba(120, 195, 106, 0.2);
+  transition: all 0.5s ease;
+  transform: translateY(30px);
+  opacity: 0;
+}
+
+.animateImage {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.actualImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.image:hover .actualImage {
+  transform: scale(1.05);
+}
+
+.imageBorder {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: 8px;
+  bottom: 8px;
+  border: 3px solid #78C36A;
+  border-radius: 12px;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+.textContainer {
+  flex: 1;
+  padding: 1rem;
+}
+
+.title {
+  color: #78C36A;
+  font-size: 2.25rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background-color: #78C36A;
+  border-radius: 2px;
+}
+
+.subtitleText p {
+  color: #1E1E1E;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+  text-align: justify;
+}
+
+.subtitleText p span {
+  color: #C36ABF;
+  font-weight: bold;
+}
+
+.servicesTitle {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  color: #1E1E1E;
+}
+
+.servicesList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.serviceItem {
+  background-color: rgba(120, 195, 106, 0.1);
+  border-left: 3px solid #78C36A;
+  padding: 0.75rem;
+  font-size: 0.9rem;
+  color: #1E1E1E;
+  border-radius: 4px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.serviceItem:hover {
+  background-color: rgba(120, 195, 106, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
   .aboutContent {
-    max-width: 1400px; /* Match the home section max-width */
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4rem;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .imageContainer, .textContainer {
     width: 100%;
-    z-index: 2;
   }
-  
-  .imageContainer {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    position: relative;
-  }
-  
-  .image {
-    position: relative;
-    width: 100%;
-    max-width: 500px;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 16px 30px rgba(120, 195, 106, 0.2);
-    transition: all 0.5s ease;
-    transform: translateY(30px);
-    opacity: 0;
-  }
-  
-  .animateImage {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  
-  .actualImage {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.5s ease;
-  }
-  
-  .image:hover .actualImage {
-    transform: scale(1.05);
-  }
-  
-  .imageBorder {
-    position: absolute;
-    top: -8px;
-    left: -8px;
-    right: 8px;
-    bottom: 8px;
-    border: 3px solid #78C36A;
-    border-radius: 12px;
-    z-index: -1;
-    opacity: 0.6;
-  }
-  
-  .textContainer {
-    flex: 1;
-    padding: 1rem;
-  }
-  
-  .title {
-    color: #78C36A;
-    font-size: 2.25rem;
-    margin-bottom: 0.5rem;
-    position: relative;
-    display: inline-block;
-  }
-  
-  .title::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 60px;
-    height: 4px;
-    background-color: #78C36A;
-    border-radius: 2px;
-  }
-  
-  .subtitleText p {
-    color: #1E1E1E;
-    font-size: 1.125rem;
-    line-height: 1.7;
-    margin-bottom: 1.25rem;
-    text-align: justify;
-  }
-  .subtitleText p span {
-    color: #C36ABF;
-    font-weight: bold;
-  }
-  
-  
   
   .servicesList {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    margin: 1.5rem 0;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .aboutContainer {
+    padding: 2rem 1rem;
+  }
+
+  .aboutHeader h2 {
+    font-size: 2rem;
   }
   
-  .serviceItem {
-    background-color: rgba(120, 195, 106, 0.1);
-    border-left: 3px solid #78C36A;
-    padding: 0.75rem;
-    font-size: 0.9rem;
-    color: #1E1E1E;
-    border-radius: 4px;
-    text-align: center;
-    transition: all 0.3s ease;
+  .servicesList {
+    grid-template-columns: 1fr;
   }
-  
-  .serviceItem:hover {
-    background-color: rgba(120, 195, 106, 0.2);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  }
-  
- 
-  
-  /* Responsive adjustments */
-  @media (max-width: 992px) {
-    .aboutContent {
-      flex-direction: column;
-      gap: 2rem;
-    }
-    
-    .imageContainer, .textContainer {
-      width: 100%;
-    }
-    
-    .servicesList {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  
-  @media (max-width: 576px) {
-    .servicesList {
-      grid-template-columns: 1fr;
-    }
-  }
+}

@@ -30,6 +30,10 @@ export default function About() {
 
   return (
     <div className={styles.aboutContainer}>
+      <div className={styles.aboutHeader}>
+        <h2><span>About</span> Us</h2>
+      </div>
+      
       <div className={styles.aboutContent}>
         <div className={styles.imageContainer}>
           <div 
