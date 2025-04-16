@@ -1,0 +1,255 @@
+/* Services.module.css */
+.servicesSection {
+  padding: 5rem 0;
+  background-color: #f8fafc;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  color: #0F172A;
+  margin-bottom: 1rem;
+}
+
+.titleUnderline {
+  width: 80px;
+  height: 4px;
+  background-color: #8EC36A;
+  margin: 0 auto 1.5rem;
+  border-radius: 2px;
+}
+
+.sectionDescription {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #1E293B;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  height: var(--standard-card-height, auto);
+  display: flex;
+  flex-direction: column;
+}
+
+.card.expanded {
+  height: auto;
+  min-height: var(--standard-card-height, auto);
+  z-index: 10;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  border-color: var(--card-accent-color);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  border-color: var(--card-accent-color);
+}
+.iconWrapper {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  background-color: var(--card-accent-color);
+  color: white;
+  transition: transform 0.4s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+/* Fix for SVG icons to make them perfectly square */
+.iconContainer svg {
+  width: 24px !important;
+  height: 24px !important;
+  display: block;
+}
+
+.card:hover .iconWrapper {
+  transform: scale(1.1);
+}
+/* Bubble animation styles */
+.bubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .bubbles {
+  opacity: 1;
+}
+
+.bubble {
+  position: absolute;
+  background-color: rgba(142, 195, 106, 0.15);
+  border-radius: 50%;
+  animation: float 8s infinite ease-in-out;
+}
+
+.bubble:nth-child(1) {
+  width: 40px;
+  height: 40px;
+  left: 10%;
+  top: 20%;
+  animation-delay: 0s;
+}
+
+.bubble:nth-child(2) {
+  width: 60px;
+  height: 60px;
+  right: 10%;
+  top: 40%;
+  animation-delay: 2s;
+}
+
+.bubble:nth-child(3) {
+  width: 30px;
+  height: 30px;
+  left: 20%;
+  bottom: 20%;
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(10deg);
+  }
+}
+
+.cardTitle {
+  color: #0F172A;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.cardDescription {
+  color: #1E293B;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+  transition: height 0.3s ease;
+}
+
+.shortContent {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.fullContent {
+  overflow: visible;
+}
+
+.learnMore {
+  background: none;
+  border: none;
+  color: var(--card-accent-color);
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+  border-radius: 20px;
+  margin-top: auto; /* Push to bottom of flex container */
+}
+
+.learnMore:hover {
+  background-color: rgba(142, 195, 106, 0.1);
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.card:hover .arrow:not(.rotated) {
+  transform: translateX(5px);
+}
+
+.rotated {
+  transform: rotate(-180deg);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .servicesGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .servicesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .iconWrapper {
+    width: 60px;
+    height: 35px;
+  }
+}

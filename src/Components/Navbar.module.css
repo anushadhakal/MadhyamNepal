@@ -1,0 +1,174 @@
+/* Navbar.module.css */
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 50;
+    background-color: #e0ede3;
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+  }
+  
+  .scrolled {
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+  }
+  
+  .navbarWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #1E1E1E;
+  }
+  
+  .logoImage {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: #78C36A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.5rem;
+  }
+  
+  .logoText {
+    color: white;
+    font-weight: bold;
+  }
+  
+  .brandName {
+    color: #1E1E1E;
+  }
+  
+  .navItems {
+    display: none;
+  }
+  
+  .navLink {
+    color: #1E1E1E;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    margin: 0 1rem;
+    font-size: 20px;
+  }
+  
+  .navLink:hover {
+    color: #78C36A;
+  }
+  
+  .activeLink {
+    color: #78C36A;
+    font-weight: 600;
+  }
+  
+  .scheduleButton {
+    background-color: #78C36A;
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    padding: 0.5rem 1.5rem;
+    margin-left: 1.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .scheduleButton:hover {
+    background-color: #196c04;
+  }
+  
+  .mobileToggle {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #1E1E1E;
+  }
+  
+  .mobileMenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: all 0.3s ease;
+    visibility: hidden;
+  }
+  
+  .mobileMenuOpen {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .mobileNavItems {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+  
+  .mobileNavItems .navLink {
+    margin: 0.75rem 0;
+  }
+  
+  .mobileScheduleButton {
+    background-color: #78C36A;
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    padding: 0.75rem;
+    margin-top: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s ease;
+  }
+  
+  .mobileScheduleButton:hover {
+    background-color: #6ab059;
+  }
+  
+  /* Responsive styles for tablets and larger screens */
+  @media (min-width: 768px) {
+    .navItems {
+      display: flex;
+      align-items: center;
+    }
+    
+    .mobileToggle {
+      display: none;
+    }
+    
+    .mobileMenu {
+      display: none;
+    }
+  }
+  
+  /* Additional styles for larger screens */
+  @media (min-width: 1024px) {
+    .navbarWrapper {
+      padding: 0 2rem;
+    }
+    
+    .navLink {
+      margin: 0 1.25rem;
+    }
+  }

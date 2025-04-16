@@ -1,0 +1,98 @@
+import React, { useEffect, useRef } from 'react';
+import styles from './Home.module.css';
+
+const Home = () => {
+  const typedTextRef = useRef(null);
+  const words = ["Your Digital Future"];
+  
+  useEffect(() => {
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 150;
+    
+    const type = () => {
+      const currentWord = words[wordIndex];
+      
+      if (isDeleting) {
+        // Deleting text
+        typedTextRef.current.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+        typingSpeed = 80; // faster deletion
+      } else {
+        // Typing text
+        typedTextRef.current.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+        typingSpeed = 150; // normal typing speed
+      }
+      
+      // If word is complete
+      if (!isDeleting && charIndex === currentWord.length) {
+        isDeleting = true;
+        typingSpeed = 3000; // pause at the end of word
+      }
+      
+      // If deletion is complete
+      if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+      }
+      
+      setTimeout(type, typingSpeed);
+    };
+    
+    if (typedTextRef.current) {
+      setTimeout(type, 1000);
+    }
+    
+    // Cleanup function
+    return () => {
+      clearTimeout(type);
+    };
+  }, []);
+  
+  return (
+    <div className={styles.firstSection}>
+      {/* Decorative elements */}
+      <div className={`${styles.symbol} ${styles.cross}`}></div>
+      <div className={`${styles.symbol} ${styles.circle}`}></div>
+      <div className={`${styles.symbol} ${styles.square}`}></div>
+      <div className={`${styles.symbol} ${styles.triangle}`}></div>
+      <div className={`${styles.symbol} ${styles.plus}`}></div>
+      
+      {/* Large background bubbles */}
+      <div className={`${styles.largeBubble} ${styles.largeBubble1}`}></div>
+      <div className={`${styles.largeBubble} ${styles.largeBubble2}`}></div>
+      
+      <div className={styles.contentWrapper}>
+        <div className={styles.headerText}>
+          <h2 className={styles.sectionTitle}>
+            Your vision, <br />
+            <span>
+              Our Mission, <span ref={typedTextRef} className={styles.typedText}></span>
+            </span>
+          </h2>
+          <h3 className={styles.subheading}>
+            <b>Madhyam Nepal </b> is the leading digital marketing agency in Pokhara, dedicated to transforming your business into a recognizable brand. From crafting engaging social media campaigns to executing powerful SEO strategies, we specialize in delivering end-to-end marketing solutions tailored to your goals.
+          </h3>
+          <a href="#courses" className={styles.exploreButton}>
+            <span>Schedule Meeting</span>
+          </a>
+        </div>
+        <div className={styles.headerImageDiv}>
+          <div className={styles.imageContainer}>
+            <img
+              src="https://placehold.co/600x400"
+              alt="A Boy Working on Laptop"
+              className={styles.headerImage}
+            />
+            
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Home;
