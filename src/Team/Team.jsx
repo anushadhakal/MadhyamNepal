@@ -86,7 +86,7 @@ export default function Team() {
   }, []);
 
   return (
-    <div className={styles.teamContainer} id="team-section">
+    <div id = "team" className={styles.teamContainer}>
       <div className={styles.teamHeader}>
         <h2><span>Team</span> Madhyam Nepal</h2>
       </div>

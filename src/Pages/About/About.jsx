@@ -29,7 +29,7 @@ export default function About() {
   }, []);
 
   return (
-    <div className={styles.aboutContainer}>
+    <div id = "about" className={styles.aboutContainer}>
       <div className={styles.aboutHeader}>
         <h2><span>About</span> Us</h2>
       </div>

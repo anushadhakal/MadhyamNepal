@@ -23,20 +23,9 @@
   color: #78C36A;
   position: relative;
   display: inline-block;
-  padding-bottom: 10px;
+  margin-bottom: 15px;
 }
 
-.aboutHeader h2::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background-color: #78C36A;
-  border-radius: 2px;
-}
 
 .aboutHeader h2 span {
   color: #1E1E1E;
@@ -49,7 +38,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 4rem;
+  gap: 0rem;
   width: 100%;
   z-index: 2;
 }
@@ -104,6 +93,7 @@
 .textContainer {
   flex: 1;
   padding: 1rem;
+  margin-right: 58px;
 }
 
 .title {
@@ -114,16 +104,7 @@
   display: inline-block;
 }
 
-.title::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  width: 60px;
-  height: 4px;
-  background-color: #78C36A;
-  border-radius: 2px;
-}
+
 
 .subtitleText p {
   color: #1E1E1E;

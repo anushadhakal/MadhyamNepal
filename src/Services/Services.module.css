@@ -119,7 +119,7 @@
 
 .bubble {
   position: absolute;
-  background-color: rgba(142, 195, 106, 0.15);
+  background-color: rgba(119, 255, 29, 0.15);
   border-radius: 50%;
   animation: float 8s infinite ease-in-out;
 }
@@ -187,7 +187,7 @@
 .learnMore {
   background: none;
   border: none;
-  color: var(--card-accent-color);
+  color: #C36ABF;
   font-weight: 600;
   font-size: 0.9rem;
   display: flex;

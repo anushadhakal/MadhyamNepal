@@ -52,7 +52,7 @@ const Home = () => {
   }, []);
   
   return (
-    <div className={styles.firstSection}>
+    <div id='home' className={styles.firstSection}>
       {/* Decorative elements */}
       <div className={`${styles.symbol} ${styles.cross}`}></div>
       <div className={`${styles.symbol} ${styles.circle}`}></div>

@@ -212,9 +212,9 @@
   
   .submitBtn:hover {
     background-color: white;
-    color: #78C36A;
+    color: #C36ABF;
     transform: translateY(-3px);
-    border: 1px solid #78C36A;
+    border: 1px solid #C36ABF;
   }
   
   .submitBtn i {

@@ -8,6 +8,8 @@ import About from './Pages/About/About'
 import Services from './Services/Services'
 import Contact from './Contact/Contact'
 import Team from './Team/Team'
+import Footer from './Components/Footer'
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,6 +22,7 @@ function App() {
     <Services/>
     <Team/>
     <Contact/>
+    <Footer/>
       </>
   )
 }
