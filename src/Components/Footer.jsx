@@ -10,21 +10,18 @@ const Footer = () => {
         <div className={styles.footerContent}>
           <div className={styles.footerInfo}>
             <div className={styles.logoContainer}>
-              {/* <img src={logo} alt="Birta Academy Logo" className={styles.logo} /> */}
+         
               <h3 className={styles.logoText}>Madhyam <span>Nepal</span></h3>
             </div>
             <p className={styles.description}>
               Your trusted digital marketing partner in Nepal.
             </p>
             <div className={styles.socialLinks}>
-              <a href="https://www.facebook.com/birtasoft" target = "_blank" className={styles.socialLink}>
+              <a href="https://www.facebook.com/Madhyamnepal" target = "_blank" className={styles.socialLink}>
                 <i className="fab fa-facebook-f"></i>
               </a>
-              <a href="https://www.instagram.com/birtasoft_/" target = "_blank" className={styles.socialLink}>
+              <a href="https://www.instagram.com/madhyamnepal/" target = "_blank" className={styles.socialLink}>
                 <i className="fab fa-instagram"></i>
-              </a>
-              <a href="https://www.linkedin.com/in/bimalcodes/" target = "_blank" className={styles.socialLink}>
-                <i className="fab fa-linkedin-in"></i>
               </a>
             </div>
           </div>
@@ -35,7 +32,6 @@ const Footer = () => {
               <ul className={styles.links}>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About Us</a></li>
-                <li><a href="#courses">Courses</a></li>
                 <li><a href="#contact">Contact</a></li>
               </ul>
             </div>
@@ -51,11 +47,11 @@ const Footer = () => {
                 </li>
                 <li>
                   <i className="fas fa-phone-alt"></i>
-                  <span>9861474074 9703602478</span>
+                  <span>9808337780</span>
                 </li>
                 <li>
                   <i className="fas fa-envelope"></i>
-                  <span>info@birtasoft.com</span>
+                  <span>madhyam.np@gmail.com</span>
                 </li>
               </ul>
             </div>
@@ -64,7 +60,7 @@ const Footer = () => {
         
         <div className={styles.footerBottom}>
           <p className={styles.copyright}>
-            &copy; {currentYear} Birta Academy. All Rights Reserved.
+            &copy; {currentYear} Madhyam Nepal. All Rights Reserved.
           </p> 
           <p  className={styles.copyright}>
             Powered By: Birta Soft

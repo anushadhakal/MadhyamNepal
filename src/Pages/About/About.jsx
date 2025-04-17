@@ -57,7 +57,7 @@ export default function About() {
             <p>
             <span>Madhyam Nepal</span> is a dynamic digital Marketing agency dedicated to empowering businesses with innovative and result-driven strategies. 
 
-Our mission is to connect brands with their target audiences effectively, enabling them to grow and thrive in the competitive digital landscape. At "Madhyam," we combine creativity with data-driven insights to deliver impactful solutions tailored to our teams' unique needs.
+Our mission is to connect brands with their target audiences effectively, enabling them to grow and thrive in the competitive digital landscape. At "Madhyam", we combine creativity with data-driven insights to deliver impactful solutions tailored to our teams' unique needs.
             </p>
           </div>
          

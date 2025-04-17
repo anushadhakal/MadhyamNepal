@@ -11,36 +11,21 @@ export default function Team() {
   const teamMembers = [
     {
       id: 1,
-      name: "John Doe",
+      name: "abc xyz",
       position: "Founder & CEO",
       image: member1,
-      social: {
-        linkedin: "https://linkedin.com/",
-        twitter: "https://twitter.com/",
-        instagram: "https://instagram.com/"
-      }
     },
     {
       id: 2,
-      name: "Jane Smith",
+      name: "abc xyzzz",
       position: "Creative Director",
       image: member1,
-      social: {
-        linkedin: "https://linkedin.com/",
-        twitter: "https://twitter.com/",
-        instagram: "https://instagram.com/"
-      }
     },
     {
       id: 3,
-      name: "Alex Johnson",
+      name: "xyz abc",
       position: "Marketing Strategist",
       image: member1,
-      social: {
-        linkedin: "https://linkedin.com/",
-        twitter: "https://twitter.com/",
-        instagram: "https://instagram.com/"
-      }
     }
   ];
 
@@ -88,7 +73,7 @@ export default function Team() {
   return (
     <div id = "team" className={styles.teamContainer}>
       <div className={styles.teamHeader}>
-        <h2><span>Team</span> Madhyam Nepal</h2>
+        <h2>Team<span> Madhyam Nepal</span></h2>
       </div>
       
       <div className={styles.teamContent}>

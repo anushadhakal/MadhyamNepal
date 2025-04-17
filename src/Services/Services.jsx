@@ -86,14 +86,14 @@ const Services = () => {
     },
     {
       title: 'Meta Ads',
-      description: 'Boost your business with highly targeted advertising on Meta platforms (Facebook and Instagram). At Madhyam Nepal, we provide:\n-Audience Targeting: Reach the right people based on demographics, interests, and behaviors.\n-Ad Design: Create visually appealing and engaging ad creatives.\n-Campaign Optimization: Continuously refine ads for maximum ROI.\n-Performance Tracking: Monitor key metrics like reach, engagement, and conversions.\n-Budget Management: Ensure cost-effective campaigns tailored to your goals.\nDrive growth and visibility with expert Meta ad strategies from Madhyam Nepal!',
+      description: 'Boost your business with highly targeted advertising on Meta platforms (Facebook and Instagram). At Madhyam Nepal, we provide:\n-Audience Targeting: Reach the right people based on demographics, interests, and behaviors.\n-Ad Design: Create visually appealing and engaging ad creatives.\n-Campaign Optimization: Continuously refine ads for maximum ROI.\n-Performance Tracking: Monitor key metrics like reach, engagement, and conversions.\n-Budget Management: Ensure cost effective campaigns tailored to your goals.\nDrive growth and visibility with expert Meta ad strategies from Madhyam Nepal!',
       icon: <FaFacebookSquare style={iconStyle} />,
       color: '#8EC36A',
       path: '/services/meta-ads'
     },
     {
       title: 'Website Design & Development',
-      description: 'At Madhyam Nepal, we create user-friendly and visually appealing websites tailored to your business needs. Our services include:\n-Custom Design: Unique, responsive, and brand-focused designs.\n-Web Development: Fast, secure, and scalable websites using the latest technologies.\n-E-commerce Solutions: Seamless online stores to boost your sales.\n-SEO-Friendly Structure: Optimized for better search engine rankings.\n-Maintenance and Support: Ensuring your website stays updated and runs smoothly.\nBuild a strong online presence with our expert website design and development services!',
+      description: 'At Madhyam Nepal, we create user-friendly and visually appealing websites tailored to your business needs. Our services include:\n-Custom Design: Unique, responsive, and brand focused designs.\n-Web Development: Fast, secure, and scalable websites using the latest technologies.\n-E commerce Solutions: Seamless online stores to boost your sales.\n-SEO Friendly Structure: Optimized for better search engine rankings.\n-Maintenance and Support: Ensuring your website stays updated and runs smoothly.\nBuild a strong online presence with our expert website design and development services!',
       icon: <FaLaptopCode style={iconStyle} />,
       color: '#8EC36A',
       path: '/services/website-design'
@@ -107,21 +107,21 @@ const Services = () => {
     },
     {
       title: 'Video Marketing & Production',
-      description: 'At Madhyam Nepal, we create impactful videos to captivate your audience and drive engagement. Our services include:\n-Video Strategy: Crafting video campaigns aligned with your business goals.\n-Content Creation: Producing promotional, explainer, and storytelling videos.\n-Editing and Post-Production: Delivering high-quality, polished videos.\n-Platform Optimization: Tailoring videos for social media, websites, and ads.\n-Analytics and Insights: Tracking video performance to maximize ROI.\nTell your story visually with Madhyam Nepal\'s expert video marketing and production services!',
+      description: 'At Madhyam Nepal, we create impactful videos to captivate your audience and drive engagement. Our services include:\n-Video Strategy: Crafting video campaigns aligned with your business goals.\n-Content Creation: Producing promotional, explainer, and storytelling videos.\n-Editing and Post Production: Delivering high quality, polished videos.\n-Platform Optimization: Tailoring videos for social media, websites, and ads.\n-Analytics and Insights: Tracking video performance to maximize ROI.\nTell your story visually with Madhyam Nepal\'s expert video marketing and production services!',
       icon: <FaVideo style={iconStyle} />,
       color: '#8EC36A',
       path: '/services/video-marketing'
     },
     {
       title: 'Influencer Marketing',
-      description: 'At Madhyam Nepal, we connect your brand with the right influencers to amplify your message and reach your target audience. Our services include:\n-Influencer Identification: Finding influencers who align with your brand and audience.\n-Campaign Strategy: Designing impactful campaigns to maximize engagement and conversions.\n-Content Collaboration: Ensuring authentic and creative content from influencers.\n-Performance Tracking: Measuring reach, engagement, and ROI for every campaign.\n-Long-Term Partnerships: Building lasting relationships with key influencers.\nLeverage the power of trust and authenticity with Madhyam Nepal\'s influencer marketing services!',
+      description: 'At Madhyam Nepal, we connect your brand with the right influencers to amplify your message and reach your target audience. Our services include:\n-Influencer Identification: Finding influencers who align with your brand and audience.\n-Campaign Strategy: Designing impactful campaigns to maximize engagement and conversions.\n-Content Collaboration: Ensuring authentic and creative content from influencers.\n-Performance Tracking: Measuring reach, engagement, and ROI for every campaign.\n-Long Term Partnerships: Building lasting relationships with key influencers.\nLeverage the power of trust and authenticity with Madhyam Nepal\'s influencer marketing services!',
       icon: <FaUserFriends style={iconStyle} />,
       color: '#8EC36A',
       path: '/services/influencer-marketing'
     },
     {
       title: 'Lead Generation Campaigns',
-      description: 'At Madhyam Nepal, we design targeted campaigns to attract and convert potential customers into quality leads. Our services include:\n-Custom Strategies: Crafting campaigns tailored to your business goals and audience.\n-Landing Page Optimization: Designing high-converting pages for maximum lead capture.\n-Paid Ads: Running Facebook, Google, and LinkedIn ads to drive targeted traffic.\n-Email Marketing: Nurturing leads through personalized email campaigns.\n-Analytics and Reporting: Tracking performance and refining strategies for better results.\nGrow your business with effective lead generation campaigns by Madhyam Nepal!',
+      description: 'At Madhyam Nepal, we design targeted campaigns to attract and convert potential customers into quality leads. Our services include:\n-Custom Strategies: Crafting campaigns tailored to your business goals and audience.\n-Landing Page Optimization: Designing high converting pages for maximum lead capture.\n-Paid Ads: Running Facebook, Google, and LinkedIn ads to drive targeted traffic.\n-Email Marketing: Nurturing leads through personalized email campaigns.\n-Analytics and Reporting: Tracking performance and refining strategies for better results.\nGrow your business with effective lead generation campaigns by Madhyam Nepal!',
       icon: <FaBullseye style={iconStyle} />,
       color: '#8EC36A',
       path: '/services/lead-generation'
@@ -157,7 +157,7 @@ const Services = () => {
     <section className={styles.servicesSection} id="services">
       <div className={styles.container}>
         <div className={styles.sectionHeader}>
-          <h2 className={styles.sectionTitle}>Our Services</h2>
+          <h2 className={styles.sectionTitle}>Our <span>Services</span></h2>
           <div className={styles.titleUnderline}></div>
           <p className={styles.sectionDescription}>
             Madhyam Nepal offers comprehensive digital marketing solutions to help your business thrive in the digital landscape.

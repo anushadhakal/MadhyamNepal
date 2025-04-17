@@ -1,7 +1,7 @@
-// Navbar.jsx
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import styles from './Navbar.module.css';
+import logoImage from '../assets/logo.webp'; // Assuming you have a logo image
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -59,10 +59,13 @@ const Navbar = () => {
       <div className={styles.navbarWrapper}>
         {/* Logo */}
         <div className={styles.logo}>
-          <div className={styles.logoImage}>
-            <span className={styles.logoText}>M</span>
+          <div className={styles.logoContainer}>
+            <img 
+              src={logoImage} 
+              alt="Madhyam Nepal Logo" 
+              className={styles.logoImage} 
+            />
           </div>
-          <span className={styles.brandName}>Madhyam Nepal</span>
         </div>
 
         {/* Desktop Nav */}

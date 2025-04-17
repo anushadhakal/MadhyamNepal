@@ -2,13 +2,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3rem 4rem;
   background-color: #faf9f9;
   font-family: 'Inter', sans-serif;
   position: relative;
   overflow: hidden;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 3rem 4rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .aboutHeader {
@@ -26,19 +27,18 @@
   margin-bottom: 15px;
 }
 
-
 .aboutHeader h2 span {
   color: #1E1E1E;
   font-weight: bold;
 }
 
 .aboutContent {
-  max-width: 1400px; /* Match the home section max-width */
+  max-width: 1400px;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 0rem;
+  gap: 2rem;
   width: 100%;
   z-index: 2;
 }
@@ -93,18 +93,15 @@
 .textContainer {
   flex: 1;
   padding: 1rem;
-  margin-right: 58px;
 }
 
 .title {
   color: #78C36A;
   font-size: 2.25rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
   position: relative;
   display: inline-block;
 }
-
-
 
 .subtitleText p {
   color: #1E1E1E;
@@ -150,6 +147,16 @@
 }
 
 /* Responsive adjustments */
+@media (max-width: 1200px) {
+  .aboutContainer {
+    padding: 3rem 2rem;
+  }
+  
+  .textContainer {
+    margin-right: 0;
+  }
+}
+
 @media (max-width: 992px) {
   .aboutContent {
     flex-direction: column;
@@ -158,10 +165,25 @@
   
   .imageContainer, .textContainer {
     width: 100%;
+    max-width: 600px;
   }
   
   .servicesList {
     grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutContainer {
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .aboutHeader h2 {
+    font-size: 2.2rem;
   }
 }
 
@@ -169,12 +191,38 @@
   .aboutContainer {
     padding: 2rem 1rem;
   }
-
+  
   .aboutHeader h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  .subtitleText p {
+    font-size: 1rem;
   }
   
   .servicesList {
     grid-template-columns: 1fr;
+  }
+  
+  .serviceItem {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .aboutContainer {
+    padding: 1.5rem 0.75rem;
+  }
+  
+  .aboutHeader h2 {
+    font-size: 1.6rem;
+  }
+  
+  .title {
+    font-size: 1.6rem;
   }
 }

@@ -1,4 +1,4 @@
-// ContactUs.jsx
+ // ContactUs.jsx
 import React, { useState } from 'react';
 import styles from './Contact.module.css';
 
@@ -132,6 +132,7 @@ const Contact = () => {
                   placeholder="Your Message"
                   required
                   rows="6"
+                  className={styles.textarea}
                   ></textarea>
               </div>
               
@@ -143,7 +144,7 @@ const Contact = () => {
         </div>
       </div>
     </section>
-                  </div>
+  </div>
   );
 };
 
