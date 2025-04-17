@@ -1,4 +1,3 @@
-
 .footer {
   background-color: #cef0d6;
   color: #C36ABF;
@@ -174,8 +173,7 @@
 .copyright {
   color: black;
   font-size: 1.04rem;
- margin-bottom: 7px;
-
+  margin-bottom: 7px;
 }
 
 
@@ -211,6 +209,31 @@
   .contactInfo li {
     justify-content: center;
   }
+  
+  /* Adjusted font sizes for tablets */
+  .footer {
+    font-size: medium;
+  }
+  
+  .logoText {
+    font-size: 1.3rem;
+  }
+  
+  .description {
+    font-size: 1rem;
+  }
+  
+  .linkTitle {
+    font-size: 1.2rem;
+  }
+  
+  .links a {
+    font-size: 1rem;
+  }
+  
+  .copyright {
+    font-size: 0.95rem;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -224,5 +247,38 @@
   
   .logoContainer {
     justify-content: center;
+  }
+  
+  /* Further reduced font sizes for mobile phones */
+  .footer {
+    font-size: small;
+  }
+  
+  .logoText {
+    font-size: 1.2rem;
+  }
+  
+  .description {
+    font-size: 0.9rem;
+  }
+  
+  .linkTitle {
+    font-size: 1.1rem;
+  }
+  
+  .links a {
+    font-size: 0.9rem;
+  }
+  
+  .contactInfo li {
+    font-size: 0.9rem;
+  }
+  
+  .contactInfo li i {
+    font-size: 1rem;
+  }
+  
+  .copyright {
+    font-size: 0.85rem;
   }
 }
