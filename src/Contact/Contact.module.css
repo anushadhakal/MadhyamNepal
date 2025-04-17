@@ -1,6 +1,7 @@
 .contactSection {
-  padding: 20px 0;
+  padding: 20px 4rem;
   background-color: #fafafa;
+  margin: 0 auto;
   color: #333;
   width: 100%;
   box-sizing: border-box;
@@ -495,9 +496,12 @@
 }
 
 @media (min-width: 1200px) {
-  .contactSection {
-    padding: 60px 0;
+  .contactSection .container {
+    padding: 60px 0rem!important;
+  
   }
+  
+  
   
   .contactHeader h2 {
     font-size: 36px;

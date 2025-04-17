@@ -48,6 +48,8 @@
   display: flex;
   justify-content: center;
   position: relative;
+  margin: 0px;
+  padding: 0px;
 }
 
 .image {
@@ -93,6 +95,7 @@
 .textContainer {
   flex: 1;
   padding: 1rem;
+  padding-right: 3rem;
 }
 
 .title {
@@ -149,7 +152,7 @@
 /* Responsive adjustments */
 @media (max-width: 1200px) {
   .aboutContainer {
-    padding: 3rem 2rem;
+    padding: 3rem 4rem;
   }
   
   .textContainer {
@@ -166,6 +169,7 @@
   .imageContainer, .textContainer {
     width: 100%;
     max-width: 600px;
+
   }
   
   .servicesList {

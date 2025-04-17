@@ -149,7 +149,6 @@ const Services = () => {
       <div className={styles.container}>
         <div className={styles.sectionHeader}>
           <h2 className={styles.sectionTitle}>Our <span>Services</span></h2>
-          <div className={styles.titleUnderline}></div>
           <p className={styles.sectionDescription}>
             Madhyam Nepal offers comprehensive digital marketing solutions to help your business thrive in the digital landscape.
           </p>

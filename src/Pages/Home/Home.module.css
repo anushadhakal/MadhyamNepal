@@ -2,8 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem 1rem;
-  background-color: #fafafa; /* Changed from #FAFAFA to white with 80% opacity */
+  padding: 1.5rem 2rem;
+  background-color: #fafafa; 
   min-height: 100vh;
   position: relative;
   overflow: hidden;
@@ -662,7 +662,9 @@
 
 @media (min-width: 1200px) {
   .firstSection {
-    padding: 4rem;
+    padding: 4rem 5rem;
+    
+
   }
   
   .contentWrapper {

@@ -83,7 +83,6 @@ const Navbar = () => {
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
-
       {/* Mobile Menu */}
       <div className={`${styles.mobileMenu} ${isOpen ? styles.mobileMenuOpen : ''}`}>
         <div className={styles.mobileNavItems}>
