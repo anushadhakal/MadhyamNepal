@@ -108,7 +108,20 @@
     font-weight: 500;
     margin-bottom: 1rem;
   }
-  
+  .memberIdCircle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background-color: #78C36A;
+    color: white;
+    border-radius: 50%;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: auto ;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
   .socialLinks {
     display: flex;
     justify-content: center;

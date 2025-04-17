@@ -2,8 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem 1rem;
-  background-color: #FAFAFA;
+  padding: 1.5rem 1rem;
+  background-color: #fafafa; /* Changed from #FAFAFA to white with 80% opacity */
   min-height: 100vh;
   position: relative;
   overflow: hidden;
@@ -18,10 +18,11 @@
   max-width: 1400px;
   z-index: 2;
   flex-direction: column;
+  padding: 0 15px;
 }
 
 .headerText {
-  font-family: sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   max-width: 100%;
   animation: fadeIn 1s ease;
   padding-right: 0;
@@ -30,7 +31,7 @@
 }
 
 .sectionTitle {
-  font-size: 2rem;
+  font-size: clamp(1.75rem, 5vw, 3rem);
   font-weight: bold;
   color: #1E1E1E;
   margin-bottom: 1rem;
@@ -59,7 +60,7 @@
 
 .subheading {
   color: #1E1E1E;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
   margin-bottom: 1.5rem;
   font-weight: normal;
   line-height: 1.5;
@@ -95,9 +96,9 @@
   text-decoration: none;
   padding: 0.5rem 1.25rem;
   padding-top: 0.75rem;
-  height: 1.75rem;
+  height: auto;
   border-radius: 5px;
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
   transition: all 0.3s ease;
   box-shadow: 0 6px 20px rgba(120, 195, 106, 0.3);
   position: relative;
@@ -136,6 +137,7 @@
 }
 
 .headerImageDiv {
+  width: 100%;
   max-width: 95%;
   position: relative;
   animation: slideIn 1s ease;
@@ -150,6 +152,7 @@
 
 .headerImage {
   width: 100%;
+  height: auto;
   display: block;
   transform: perspective(1000px) rotateY(-5deg);
   transition: all 0.6s ease;
@@ -174,17 +177,17 @@
 }
 
 .largeBubble1 {
-  width: 200px;
-  height: 200px;
-  bottom: -100px;
+  width: 150px;
+  height: 150px;
+  bottom: -75px;
   right: -50px;
   animation: moveLargeBubble1 20s ease-in-out infinite;
 }
 
 .largeBubble2 {
-  width: 180px;
-  height: 180px;
-  top: -80px;
+  width: 130px;
+  height: 130px;
+  top: -60px;
   left: -40px;
   background-color: rgba(195, 106, 191, 0.08);
   border-color: rgba(195, 106, 191, 0.1);
@@ -378,28 +381,53 @@
   }
 }
 
+/* Base styles for all screens (mobile first) */
+@media (min-width: 320px) {
+  /* Smallest phones */
+  .firstSection {
+    padding: 1.5rem 1rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.75rem;
+  }
+  
+  .subheading {
+    font-size: 0.9rem;
+  }
+  
+  .exploreButton {
+    font-size: 1rem;
+    padding: 0.5rem 1.2rem;
+  }
+}
+
 /* Extra small devices (phones, 375px and up) */
+
+
 @media (min-width: 375px) {
   .firstSection {
     padding: 2rem 1.25rem;
   }
   
   .sectionTitle {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
   
   .subheading {
-    font-size: 1.05rem;
+    font-size: 1rem;
   }
   
   .exploreButton {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     padding: 0.55rem 1.3rem;
-    padding-top: 0.8rem;
-    height: 1.8rem;
   }
 }
-
+@media only screen and (min-width: 375px) and (max-width: 385px) {
+  .firstSection {
+    padding: 7rem 1.25rem;
+  }
+}
 /* Small devices (larger phones, 480px and up) */
 @media (min-width: 480px) {
   .firstSection {
@@ -407,12 +435,12 @@
   }
   
   .sectionTitle {
-    font-size: 2.3rem;
+    font-size: 2.2rem;
     margin-bottom: 1.2rem;
   }
   
   .subheading {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     margin-bottom: 2rem;
   }
   
@@ -421,20 +449,18 @@
   }
   
   .exploreButton {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     padding: 0.6rem 1.4rem;
-    padding-top: 0.85rem;
-    height: 1.9rem;
   }
   
   .largeBubble1 {
-    width: 220px;
-    height: 220px;
+    width: 180px;
+    height: 180px;
   }
   
   .largeBubble2 {
-    width: 200px;
-    height: 200px;
+    width: 160px;
+    height: 160px;
   }
 }
 
@@ -445,11 +471,11 @@
   }
   
   .sectionTitle {
-    font-size: 2.4rem;
+    font-size: 2.3rem;
   }
   
   .subheading {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
   }
   
   .headerImageDiv {
@@ -461,24 +487,22 @@
   }
   
   .largeBubble1 {
-    width: 250px;
-    height: 250px;
-    bottom: -125px;
+    width: 220px;
+    height: 220px;
+    bottom: -110px;
     right: -70px;
   }
   
   .largeBubble2 {
-    width: 220px;
-    height: 220px;
+    width: 200px;
+    height: 200px;
     top: -100px;
     left: -60px;
   }
   
   .exploreButton {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     padding: 0.65rem 1.5rem;
-    padding-top: 0.9rem;
-    height: 2rem;
   }
   
   .exploreButton:hover {
@@ -494,6 +518,7 @@
   
   .contentWrapper {
     flex-direction: row;
+    align-items: flex-start;
   }
   
   .headerText {
@@ -504,28 +529,29 @@
   }
   
   .subheading {
-    text-align: justify;
+    text-align: left;
   }
   
   .headerImageDiv {
     max-width: 45%;
+    margin-top: 0;
   }
   
   .sectionTitle {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
     margin-bottom: 1.5rem;
   }
   
   .largeBubble1 {
-    width: 300px;
-    height: 300px;
-    bottom: -150px;
+    width: 280px;
+    height: 280px;
+    bottom: -140px;
     right: -80px;
   }
   
   .largeBubble2 {
-    width: 250px;
-    height: 250px;
+    width: 240px;
+    height: 240px;
     top: -120px;
     left: -60px;
   }
@@ -563,6 +589,10 @@
     padding: 3rem 4rem;
   }
   
+  .contentWrapper {
+    padding: 0 20px;
+  }
+  
   .headerText {
     max-width: 60%;
   }
@@ -572,19 +602,17 @@
   }
   
   .sectionTitle {
-    font-size: 2.8rem;
+    font-size: 2.7rem;
   }
   
   .subheading {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     margin-bottom: 2.5rem;
   }
   
   .exploreButton {
-    padding: 0.75rem 1.8rem;
-    padding-top: 1rem;
-    height: 2rem;
-    font-size: 1.5rem;
+    padding: 0.7rem 1.7rem;
+    font-size: 1.4rem;
   }
   
   .exploreButton:hover {
@@ -601,15 +629,15 @@
   }
   
   .largeBubble1 {
-    width: 350px;
-    height: 350px;
-    bottom: -175px;
+    width: 320px;
+    height: 320px;
+    bottom: -160px;
     right: -90px;
   }
   
   .largeBubble2 {
-    width: 300px;
-    height: 300px;
+    width: 280px;
+    height: 280px;
     top: -130px;
     left: -50px;
   }
@@ -642,22 +670,60 @@
 
 /* XX large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
+  .firstSection {
+    padding: 4rem;
+  }
+  
+  .contentWrapper {
+    padding: 0 30px;
+  }
+  
   .sectionTitle {
     font-size: 3rem;
+  }
+  
+  .subheading {
+    font-size: 1.2rem;
+  }
+  
+  .largeBubble1 {
+    width: 380px;
+    height: 380px;
+    bottom: -190px;
+    right: -100px;
+  }
+  
+  .largeBubble2 {
+    width: 320px;
+    height: 320px;
+    top: -150px;
+    left: -50px;
+  }
+}
+
+/* For extra-large screens */
+@media (min-width: 1440px) {
+  .contentWrapper {
+    max-width: 1400px;
+    padding: 0 40px;
+  }
+  
+  .sectionTitle {
+    font-size: 3.2rem;
+  }
+  
+  .subheading {
+    font-size: 1.25rem;
   }
   
   .largeBubble1 {
     width: 400px;
     height: 400px;
-    bottom: -200px;
-    right: -100px;
   }
   
   .largeBubble2 {
     width: 350px;
     height: 350px;
-    top: -150px;
-    left: -50px;
   }
 }
 
@@ -682,6 +748,7 @@
   .subheading {
     text-align: left;
     margin-bottom: 1rem;  
+    font-size: 0.9rem;
   }
   
   .headerImageDiv {
@@ -695,13 +762,31 @@
   
   .exploreButton {
     padding: 0.5rem 1.2rem;
-    padding-top: 0.7rem;
-    height: 1.6rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   
   .symbol {
     display: none;
+  }
+}
+
+/* For very small devices with narrow width */
+@media (max-width: 320px) {
+  .firstSection {
+    padding: 1rem 0.75rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+  
+  .subheading {
+    font-size: 0.85rem;
+  }
+  
+  .exploreButton {
+    font-size: 0.9rem;
+    padding: 0.4rem 1rem;
   }
 }
 
@@ -788,3 +873,4 @@
     box-shadow: none;
   }
 }
+

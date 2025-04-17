@@ -26,6 +26,36 @@ export default function Team() {
       name: "xyz abc",
       position: "Marketing Strategist",
       image: member1,
+    },
+    {
+      id: 4,
+      name: "xyz abc",
+      position: "Marketing Strategist",
+      image: member1,
+    },
+    {
+      id: 5,
+      name: "xyz abc",
+      position: "Marketing Strategist",
+      image: member1,
+    },
+    {
+      id: 6,
+      name: "xyz abc",
+      position: "Marketing Strategist",
+      image: member1,
+    },
+    {
+      id: 7,
+      name: "xyz abc",
+      position: "Marketing Strategist",
+      image: member1,
+    },
+    {
+      id: 8,
+      name: "xyz abc",
+      position: "Marketing Strategist",
+      image: member1,
     }
   ];
 
@@ -62,7 +92,7 @@ export default function Team() {
         newMembers.push(firstMember);
         return newMembers;
       });
-    }, 3000);
+    }, 2000);
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -103,7 +133,7 @@ export default function Team() {
               <div className={styles.memberInfo}>
                 <h3 className={styles.memberName}>{member.name}</h3>
                 <p className={styles.memberPosition}>{member.position}</p>
-                
+                <div className={styles.memberIdCircle}>{member.id}</div>
               
               </div>
             </div>
