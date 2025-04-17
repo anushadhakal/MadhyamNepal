@@ -229,8 +229,6 @@
       transform: translateX(200%);
     }
   }
-  
-  /* Responsive adjustments */
   @media (max-width: 1024px) {
     .memberCard {
       width: 280px;

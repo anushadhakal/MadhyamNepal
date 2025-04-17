@@ -68,7 +68,6 @@
   border-color: var(--card-accent-color);
 }
 
-/* Fixed icon wrapper to ensure perfect circles */
 .iconWrapper {
   width: 60px;
   height: 60px;

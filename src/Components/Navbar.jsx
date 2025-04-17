@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import styles from './Navbar.module.css';
-import logoImage from '../assets/logo.webp'; // Assuming you have a logo image
+import logoImage from '../assets/logo.webp'; 
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,7 +41,7 @@ const Navbar = () => {
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
       setActiveLink(id);
-      setIsOpen(false); // Close mobile menu on click
+      setIsOpen(false); 
     }
   };
 

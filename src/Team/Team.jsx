@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Team.module.css';
-// Import placeholder images - replace with actual team member images
 import member1 from '../assets/madhyamLogo.webp';
 
 export default function Team() {
   const [animate, setAnimate] = useState(false);
   const [activeMembers, setActiveMembers] = useState([]);
 
-  // Team members data
   const teamMembers = [
     {
       id: 1,
@@ -60,19 +58,12 @@ export default function Team() {
   ];
 
   useEffect(() => {
-    // Initialize active members
     setActiveMembers([...teamMembers]);
-    
-    // Add animation after component mounts
     setAnimate(true);
-    
-    // Re-trigger animation when scrolled into view
     const handleScroll = () => {
       const element = document.getElementById('team-section');
       if (element) {
         const position = element.getBoundingClientRect();
-        
-        // If element is in viewport
         if (position.top < window.innerHeight && position.bottom >= 0) {
           setAnimate(true);
         } else {
@@ -82,12 +73,9 @@ export default function Team() {
     };
 
     window.addEventListener('scroll', handleScroll);
-    
-    // Set up the carousel rotation
     const carouselInterval = setInterval(() => {
       setActiveMembers(prevMembers => {
         const newMembers = [...prevMembers];
-        // Move the first member to the end
         const firstMember = newMembers.shift();
         newMembers.push(firstMember);
         return newMembers;

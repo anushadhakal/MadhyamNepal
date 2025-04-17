@@ -15,24 +15,20 @@ const Home = () => {
       const currentWord = words[wordIndex];
       
       if (isDeleting) {
-        // Deleting text
         typedTextRef.current.textContent = currentWord.substring(0, charIndex - 1);
         charIndex--;
-        typingSpeed = 80; // faster deletion
+        typingSpeed = 80; 
       } else {
-        // Typing text
         typedTextRef.current.textContent = currentWord.substring(0, charIndex + 1);
         charIndex++;
-        typingSpeed = 150; // normal typing speed
+        typingSpeed = 150; 
       }
-      
-      // If word is complete
+
       if (!isDeleting && charIndex === currentWord.length) {
         isDeleting = true;
-        typingSpeed = 3000; // pause at the end of word
+        typingSpeed = 3000; 
       }
-      
-      // If deletion is complete
+   
       if (isDeleting && charIndex === 0) {
         isDeleting = false;
         wordIndex = (wordIndex + 1) % words.length;
@@ -44,8 +40,7 @@ const Home = () => {
     if (typedTextRef.current) {
       setTimeout(type, 1000);
     }
-    
-    // Cleanup function
+  
     return () => {
       clearTimeout(type);
     };
@@ -53,14 +48,11 @@ const Home = () => {
   
   return (
     <div id='home' className={styles.firstSection}>
-      {/* Decorative elements */}
       <div className={`${styles.symbol} ${styles.cross}`}></div>
       <div className={`${styles.symbol} ${styles.circle}`}></div>
       <div className={`${styles.symbol} ${styles.square}`}></div>
       <div className={`${styles.symbol} ${styles.triangle}`}></div>
       <div className={`${styles.symbol} ${styles.plus}`}></div>
-      
-      {/* Large background bubbles */}
       <div className={`${styles.largeBubble} ${styles.largeBubble1}`}></div>
       <div className={`${styles.largeBubble} ${styles.largeBubble2}`}></div>
       

@@ -16,8 +16,6 @@ const ServiceCard = ({ title, description, icon, color, path }) => {
   const [expanded, setExpanded] = useState(false);
   const shortContentRef = useRef(null);
   const fullContentRef = useRef(null);
-
-  // Split description into short and full versions
   const shortDescription = description.split('-')[0].trim();
 
   const toggleExpand = () => {
@@ -65,8 +63,6 @@ const ServiceCard = ({ title, description, icon, color, path }) => {
 const Services = () => {
   const [standardHeight, setStandardHeight] = useState(0);
   const cardsRef = useRef([]);
-
-  // Set a standard size for all icons
   const iconStyle = { width: '24px', height: '24px', display: 'block' };
   
   const services = [
@@ -128,27 +124,22 @@ const Services = () => {
     }
   ];
 
-  // Calculate standard height after initial render
   useEffect(() => {
     const calculateMaxHeight = () => {
       if (cardsRef.current.length > 0) {
-        // Find the tallest card in collapsed state
         let maxHeight = 0;
         cardsRef.current.forEach(card => {
           if (card) {
             const shortContentHeight = card.querySelector(`.${styles.shortContent}`)?.scrollHeight || 0;
-            const totalHeight = shortContentHeight + 180; // Add padding/spacing
+            const totalHeight = shortContentHeight + 180; 
             maxHeight = Math.max(maxHeight, totalHeight);
           }
         });
         setStandardHeight(maxHeight);
       }
     };
-
-    // Run after DOM has updated
     setTimeout(calculateMaxHeight, 100);
     
-    // Also handle window resize events
     window.addEventListener('resize', calculateMaxHeight);
     return () => window.removeEventListener('resize', calculateMaxHeight);
   }, []);

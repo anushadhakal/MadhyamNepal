@@ -1,21 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import styles from './About.module.css';
-import image from '../../assets/madhyamLogo.webp'; // Placeholder image path
-
+import image from '../../assets/madhyamLogo.webp'; 
 export default function About() {
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
-    // Add animation after component mounts
     setAnimate(true);
     
-    // Optional: Re-trigger animation when scrolled into view
     const handleScroll = () => {
       const element = document.getElementById('about-image');
       if (element) {
         const position = element.getBoundingClientRect();
         
-        // If element is in viewport
         if (position.top < window.innerHeight && position.bottom >= 0) {
           setAnimate(true);
         } else {
@@ -40,7 +36,6 @@ export default function About() {
             id="about-image"
             className={`${styles.image} ${animate ? styles.animateImage : ''}`}
           >
-            {/* Placeholder image - replace with your actual image */}
             <img 
               src={image} 
               alt="Madhyam Nepal Digital Marketing Agency" 

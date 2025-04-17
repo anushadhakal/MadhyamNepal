@@ -149,7 +149,6 @@
   background-color: #6ab059;
 }
 
-/* Responsive styles for tablets and larger screens */
 @media (min-width: 768px) {
   .navItems {
     display: flex;
@@ -170,7 +169,6 @@
   }
 }
 
-/* Additional styles for larger screens */
 @media (min-width: 1024px) {
   .navbarWrapper {
     padding: 0 2rem;
