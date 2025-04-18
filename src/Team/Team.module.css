@@ -108,21 +108,6 @@
   margin-bottom: 1rem;
 }
 
-.memberIdCircle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  background-color: #78C36A;
-  color: white;
-  border-radius: 50%;
-  font-size: 0.85rem;
-  font-weight: 600;
-  margin: auto;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
 .socialLinks {
   display: flex;
   justify-content: center;
@@ -162,6 +147,36 @@
 .memberCard:nth-child(3) {
   transform: translateX(110%);
   z-index: 2;
+}
+
+/* Dot Navigation Styles */
+/* Dot Navigation Styles with reduced gap */
+.dotNavigation {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: -3.2rem; /* Reduced from 1.5rem to 0.5rem */
+  padding: 0.5rem; /* Reduced from 1rem to 0.5rem */
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #E0E0E0;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot:hover {
+  background-color: #AAAAAA;
+}
+
+.activeDot {
+  background-color: #78C36A;
+  transform: scale(1.2);
 }
 
 /* Animation classes for card transitions */
@@ -281,7 +296,9 @@
   .memberCard {
     width: 230px;
   }
-  
+  .teamContainer{
+    padding : 1rem 2rem;
+  }
   .memberCard:nth-child(1),
   .memberCard:nth-child(3) {
     display: none;
@@ -298,7 +315,7 @@
 
 @media (max-width: 480px) {
   .teamContainer {
-    padding: 1.5rem 1rem;
+    padding: 1.5rem 2rem;
   }
   
   .teamHeader h2 {

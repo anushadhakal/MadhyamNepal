@@ -67,9 +67,8 @@ const Home = () => {
           <h3 className={styles.subheading}>
             <b>Madhyam Nepal </b> is the leading digital marketing agency in Pokhara, dedicated to transforming your business into a recognizable brand. From crafting engaging social media campaigns to executing powerful SEO strategies, we specialize in delivering end-to-end marketing solutions tailored to your goals.
           </h3>
-          <a href="#courses" className={styles.exploreButton}>
-            <span>Schedule Meeting</span>
-          </a>
+         
+          
         </div>
         <div className={styles.headerImageDiv}>
           <div className={styles.imageContainer}>

@@ -65,7 +65,7 @@ const Footer = () => {
             &copy; {currentYear} Madhyam Nepal. All Rights Reserved.
           </p> 
           <p  className={styles.copyright}>
-            Powered By: Birta Soft
+           <a href="https://birtasoft.com/" target='blank'>Powered By: Birta Soft</a> 
           </p>
           
         </div>

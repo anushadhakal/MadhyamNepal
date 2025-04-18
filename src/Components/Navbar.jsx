@@ -3,10 +3,13 @@ import { Menu, X } from 'lucide-react';
 import styles from './Navbar.module.css';
 import logoImage from '../assets/logo.webp'; 
 
+
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState('home');
+  const [isMeetingModalOpen, setIsMeetingModalOpen] = useState(false); // New state for meeting modal
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -45,6 +48,8 @@ const Navbar = () => {
     }
   };
 
+  
+
   const renderLink = (id, label) => (
     <a
       onClick={() => handleLinkClick(id)}
@@ -55,46 +60,52 @@ const Navbar = () => {
   );
 
   return (
-    <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
-      <div className={styles.navbarWrapper}>
-        {/* Logo */}
-        <div className={styles.logo}>
-          <div className={styles.logoContainer}>
-            <img 
-              src={logoImage} 
-              alt="Madhyam Nepal Logo" 
-              className={styles.logoImage} 
-            />
+    <>
+      <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
+        <div className={styles.navbarWrapper}>
+          {/* Logo */}
+          <div className={styles.logo}>
+            <div className={styles.logoContainer}>
+              <img 
+                src={logoImage} 
+                alt="Madhyam Nepal Logo" 
+                className={styles.logoImage} 
+              />
+            </div>
+          </div>
+
+          {/* Desktop Nav */}
+          <div className={styles.navItems}>
+            {renderLink('home', 'Home')}
+            {renderLink('about', 'About')}
+            {renderLink('services', 'Services')}
+            {renderLink('team', 'Team')}
+            {renderLink('contact', 'Contact Us')}
+          
+            <a className={styles.scheduleButton} href="https://www.instagram.com/madhyamnepal/" target='_blank'>View Our Work</a>
+          </div>
+
+          {/* Mobile Toggle */}
+          <button className={styles.mobileToggle} onClick={toggleMenu}>
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+        {/* Mobile Menu */}
+        <div className={`${styles.mobileMenu} ${isOpen ? styles.mobileMenuOpen : ''}`}>
+          <div className={styles.mobileNavItems}>
+            {renderLink('home', 'Home')}
+            {renderLink('about', 'About')}
+            {renderLink('services', 'Services')}
+            {renderLink('team', 'Team')}
+            {renderLink('contact', 'Contact Us')}
+           <a href="https://www.instagram.com/madhyamnepal/" target='_blank' className={styles.scheduleButton}>View Our Work</a>
           </div>
         </div>
+      </nav>
 
-        {/* Desktop Nav */}
-        <div className={styles.navItems}>
-          {renderLink('home', 'Home')}
-          {renderLink('about', 'About')}
-          {renderLink('services', 'Services')}
-          {renderLink('team', 'Team')}
-          {renderLink('contact', 'Contact Us')}
-          <button className={styles.scheduleButton}>Schedule Meeting</button>
-        </div>
-
-        {/* Mobile Toggle */}
-        <button className={styles.mobileToggle} onClick={toggleMenu}>
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-      {/* Mobile Menu */}
-      <div className={`${styles.mobileMenu} ${isOpen ? styles.mobileMenuOpen : ''}`}>
-        <div className={styles.mobileNavItems}>
-          {renderLink('home', 'Home')}
-          {renderLink('about', 'About')}
-          {renderLink('services', 'Services')}
-          {renderLink('team', 'Team')}
-          {renderLink('contact', 'Contact Us')}
-          <button className={styles.mobileScheduleButton}>Schedule Meeting</button>
-        </div>
-      </div>
-    </nav>
+   
+  
+    </>
   );
 };
 

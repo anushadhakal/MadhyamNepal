@@ -5,7 +5,8 @@ import member1 from '../assets/madhyamLogo.webp';
 export default function Team() {
   const [animate, setAnimate] = useState(false);
   const [activeMembers, setActiveMembers] = useState([]);
-
+  const [activeIndex, setActiveIndex] = useState(0);
+  
   const teamMembers = [
     {
       id: 1,
@@ -56,10 +57,11 @@ export default function Team() {
       image: member1,
     }
   ];
-
+  
   useEffect(() => {
     setActiveMembers([...teamMembers]);
     setAnimate(true);
+    
     const handleScroll = () => {
       const element = document.getElementById('team-section');
       if (element) {
@@ -71,8 +73,9 @@ export default function Team() {
         }
       }
     };
-
+    
     window.addEventListener('scroll', handleScroll);
+    
     const carouselInterval = setInterval(() => {
       setActiveMembers(prevMembers => {
         const newMembers = [...prevMembers];
@@ -80,6 +83,8 @@ export default function Team() {
         newMembers.push(firstMember);
         return newMembers;
       });
+      
+      setActiveIndex(prevIndex => (prevIndex + 1) % teamMembers.length);
     }, 2000);
     
     return () => {
@@ -87,9 +92,30 @@ export default function Team() {
       clearInterval(carouselInterval);
     };
   }, []);
-
+  
+  const handleDotClick = (index) => {
+    // Calculate how many positions we need to shift the array
+    const currentFirstId = activeMembers[0].id;
+    const targetId = teamMembers[index].id;
+    
+    // Find current position of the target in activeMembers
+    let currentIndexOfTarget = activeMembers.findIndex(member => member.id === targetId);
+    
+    if (currentIndexOfTarget === -1) return;
+    
+    // Rotate array to bring target to front
+    const newMembers = [...activeMembers];
+    while (newMembers[0].id !== targetId) {
+      const firstMember = newMembers.shift();
+      newMembers.push(firstMember);
+    }
+    
+    setActiveMembers(newMembers);
+    setActiveIndex(index);
+  };
+  
   return (
-    <div id = "team" className={styles.teamContainer}>
+    <div id="team" className={styles.teamContainer}>
       <div className={styles.teamHeader}>
         <h2>Team<span> Madhyam Nepal</span></h2>
       </div>
@@ -97,14 +123,12 @@ export default function Team() {
       <div className={styles.teamContent}>
         <div className={styles.teamIntro}>
           <p>
-            Meet the creative minds behind Madhyam Nepal. Our diverse team of digital marketing experts 
-            is passionate about helping businesses thrive in the digital world through innovative strategies 
-            and cutting-edge solutions.
+            Meet the creative minds behind Madhyam Nepal.
           </p>
         </div>
         
         <div className={`${styles.teamMembers} ${animate ? styles.animated : ''}`}>
-          {activeMembers.map((member, index) => (
+          {activeMembers.slice(0, 3).map((member, index) => (
             <div 
               key={member.id} 
               className={styles.memberCard}
@@ -121,10 +145,20 @@ export default function Team() {
               <div className={styles.memberInfo}>
                 <h3 className={styles.memberName}>{member.name}</h3>
                 <p className={styles.memberPosition}>{member.position}</p>
-                <div className={styles.memberIdCircle}>{member.id}</div>
-              
               </div>
             </div>
+          ))}
+        </div>
+        
+        {/* Dot Navigation */}
+        <div className={styles.dotNavigation}>
+          {teamMembers.map((member, index) => (
+            <button
+              key={member.id}
+              className={`${styles.dot} ${index === activeIndex ? styles.activeDot : ''}`}
+              onClick={() => handleDotClick(index)}
+              aria-label={`View ${member.name}`}
+            />
           ))}
         </div>
       </div>

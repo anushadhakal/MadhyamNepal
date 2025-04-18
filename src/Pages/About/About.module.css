@@ -6,8 +6,9 @@
   font-family: 'Inter', sans-serif;
   position: relative;
   overflow: hidden;
-  margin: 0;
-  padding: 3rem 4rem;
+  margin: 0 auto;
+  padding: clamp(1rem, 5vw, 3rem);
+
   width: 100%;
   box-sizing: border-box;
 }
@@ -15,12 +16,13 @@
 .aboutHeader {
   width: 100%;
   max-width: 1400px;
-  margin-bottom: 2rem;
+  margin: 0 auto 2rem;
   text-align: center;
+  padding: 0 1rem;
 }
 
 .aboutHeader h2 {
-  font-size: 2.5rem;
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
   color: #78C36A;
   position: relative;
   display: inline-block;
@@ -38,18 +40,21 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 2rem;
+  justify-content: center;
+  gap: clamp(1rem, 3vw, 2rem);
   width: 100%;
   z-index: 2;
+  padding: 0 1rem;
 }
 
 .imageContainer {
   flex: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
   position: relative;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 .image {
@@ -94,13 +99,13 @@
 
 .textContainer {
   flex: 1;
-  padding: 1rem;
-  padding-right: 3rem;
+  padding: clamp(0.5rem, 2vw, 1rem);
+  max-width: 100%;
 }
 
 .title {
   color: #78C36A;
-  font-size: 2.25rem;
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
   margin-bottom: 1.5rem;
   position: relative;
   display: inline-block;
@@ -108,35 +113,36 @@
 
 .subtitleText p {
   color: #1E1E1E;
-  font-size: 1.125rem;
+  font-size: clamp(0.95rem, 1.5vw, 1.125rem);
   line-height: 1.7;
   margin-bottom: 1.25rem;
   text-align: justify;
 }
 
 .subtitleText p span {
-  color: #C36ABF;
+  color: #78C36A;
   font-weight: bold;
 }
 
 .servicesTitle {
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
   margin-top: 1.5rem;
   color: #1E1E1E;
 }
 
 .servicesList {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
   margin: 1.5rem 0;
+  width: 100%;
 }
 
 .serviceItem {
   background-color: rgba(120, 195, 106, 0.1);
   border-left: 3px solid #78C36A;
   padding: 0.75rem;
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 1vw, 0.9rem);
   color: #1E1E1E;
   border-radius: 4px;
   text-align: center;
@@ -151,12 +157,8 @@
 
 /* Responsive adjustments */
 @media (max-width: 1200px) {
-  .aboutContainer {
-    padding: 3rem 4rem;
-  }
-  
-  .textContainer {
-    margin-right: 0;
+  .aboutContent {
+    padding: 0 clamp(0.5rem, 3vw, 2rem);
   }
 }
 
@@ -169,45 +171,21 @@
   .imageContainer, .textContainer {
     width: 100%;
     max-width: 600px;
-
+    padding: 0 1rem;
   }
   
-  .servicesList {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .title {
-    font-size: 2rem;
+  .textContainer {
+    padding-right: 1rem;
   }
 }
 
 @media (max-width: 768px) {
-  .aboutContainer {
-    padding: 2.5rem 1.5rem;
-  }
-  
-  .aboutHeader h2 {
-    font-size: 2.2rem;
+  .servicesList {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 576px) {
-  .aboutContainer {
-    padding: 2rem 1rem;
-  }
-  
-  .aboutHeader h2 {
-    font-size: 1.8rem;
-  }
-  
-  .title {
-    font-size: 1.8rem;
-  }
-  
-  .subtitleText p {
-    font-size: 1rem;
-  }
-  
   .servicesList {
     grid-template-columns: 1fr;
   }
@@ -215,18 +193,18 @@
   .serviceItem {
     padding: 0.5rem;
   }
-}
-
-@media (max-width: 375px) {
+  
+  .aboutHeader, .aboutContent {
+    padding: 0 0.5rem;
+  }
   .aboutContainer {
-    padding: 1.5rem 0.75rem;
+  padding-right: 2.5rem;
   }
-  
-  .aboutHeader h2 {
-    font-size: 1.6rem;
-  }
-  
-  .title {
-    font-size: 1.6rem;
+}
+@media (min-width: 1315px) {
+  .aboutContainer {
+   
+    padding-right: 7rem;
+   
   }
 }

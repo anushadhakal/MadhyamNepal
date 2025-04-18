@@ -175,6 +175,10 @@
   font-size: 1.04rem;
   margin-bottom: 7px;
 }
+.copyright a {
+  text-decoration: none;
+  color: black;
+}
 
 
 @media screen and (max-width: 992px) {
