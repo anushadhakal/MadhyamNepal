@@ -80,15 +80,11 @@ export default function Team() {
   }, []);
   
   const handleDotClick = (index) => {
-    // Calculate how many positions we need to shift the array
     const targetId = teamMembers[index].id;
-    
-    // Find current position of the target in activeMembers
+  
     let currentIndexOfTarget = activeMembers.findIndex(member => member.id === targetId);
     
     if (currentIndexOfTarget === -1) return;
-    
-    // Rotate array to bring target to front
     const newMembers = [...activeMembers];
     while (newMembers[0].id !== targetId) {
       const firstMember = newMembers.shift();
@@ -99,9 +95,8 @@ export default function Team() {
     setActiveIndex(index);
   };
   
-  // Helper function to get image class based on member ID
   const getImageClassName = (memberId) => {
-    return `${styles.memberImage} ${memberId === 5 ? styles.adjustedImage : ''}`;
+    return `${styles.memberImage} ${memberId === 3 ? styles.adjustedImage : ''}`;
   };
   
   return (
@@ -140,7 +135,6 @@ export default function Team() {
           ))}
         </div>
         
-        {/* Dot Navigation - Always visible on all devices */}
         <div className={styles.dotNavigation}>
           {teamMembers.map((member, index) => (
             <button
