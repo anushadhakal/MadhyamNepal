@@ -62,6 +62,8 @@
   width: 180px;
   height: 180px;
   margin-bottom: 1.5rem;
+  overflow: hidden;
+  border-radius: 50%;
 }
 
 .memberImage {
@@ -70,6 +72,13 @@
   object-fit: cover;
   border-radius: 50%;
   border: 3px solid #78C36A;
+  object-position: center;
+}
+
+/* Special class for the image with ID 5 */
+.adjustedImage {
+  object-position: top center;
+  transform: scale(1.05);
 }
 
 .imageBorder {
@@ -151,13 +160,15 @@
 }
 
 /* Dot Navigation Styles */
-/* Dot Navigation Styles with reduced gap */
 .dotNavigation {
   display: flex;
   justify-content: center;
   gap: 0.5rem;
-  margin-top: -3.2rem; /* Reduced from 1.5rem to 0.5rem */
-  padding: 0.5rem; /* Reduced from 1rem to 0.5rem */
+  margin-top: 1rem;
+  padding: 0.5rem;
+  /* Make sure dots are always visible */
+  position: relative;
+  z-index: 10;
 }
 
 .dot {
@@ -169,6 +180,7 @@
   padding: 0;
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-top: -6rem;
 }
 
 .dot:hover {
@@ -297,9 +309,11 @@
   .memberCard {
     width: 230px;
   }
+  
   .teamContainer{
-    padding : 1rem 2rem;
+    padding: 1rem 2rem;
   }
+  
   .memberCard:nth-child(1),
   .memberCard:nth-child(3) {
     display: none;
@@ -309,6 +323,23 @@
     position: relative;
   }
   
+  /* Increase circle size for mobile */
+  .memberImageContainer {
+    width: 180px;
+    height: 180px;
+  }
+  
+  /* Make dot navigation more prominent on mobile */
+  .dotNavigation {
+    margin-top: 2rem;
+    padding: 1rem;
+  }
+  
+  .dot {
+    width: 12px;
+    height: 12px;
+  }
+  
   .teamHeader h2 {
     font-size: 1.8rem;
   }
@@ -316,7 +347,7 @@
 
 @media (max-width: 480px) {
   .teamContainer {
-    padding: 1.5rem 2rem;
+    padding: 1.5rem 1rem;
   }
   
   .teamHeader h2 {
@@ -325,5 +356,23 @@
   
   .teamIntro {
     font-size: 1rem;
+  }
+  
+  /* Make circles even bigger on smallest screens */
+  .memberImageContainer {
+    width: 200px;
+    height: 200px;
+  }
+  
+  /* Ensure dots are clearly visible */
+  .dotNavigation {
+    gap: 0.8rem;
+  }
+  
+  .dot {
+    width: 11px;
+    height: 11px;
+    margin-top: -20px;
+    margin-bottom: 50px;
   }
 }

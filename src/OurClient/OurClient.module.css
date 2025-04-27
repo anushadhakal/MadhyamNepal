@@ -1,0 +1,308 @@
+.clientSection {
+  padding: 5rem 0;
+  background-color: #FAFAFA;
+  color: #1E1E1E;
+  overflow: hidden;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sectionHeader h2 {
+  font-size: 2.5rem;
+  position: relative;
+  display: inline-block;
+  color: #1E1E1E;
+}
+
+.sectionHeader h2 span {
+  color: #78C36A;
+}
+
+.sectionContent {
+  max-width: 1320px;
+  margin: 0 ;
+  padding: 0 ; /* Standard padding for desktop */
+  width: 100%;
+  margin-left: -20px;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem 0;
+  gap: 3.5rem;
+  overflow: hidden;
+}
+
+.logoItem {
+  flex: 0 0 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+
+.logo {
+  width: 100%;
+  height: auto;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease, transform 0.3s ease;
+  border-radius: 8px;
+  padding: 0.8rem;
+  background-color: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.logo:hover {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+/* Dot Navigation Styles */
+.dotNavigation {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 2rem;
+  padding: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #E0E0E0;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot:hover {
+  background-color: #AAAAAA;
+}
+
+.activeDot {
+  background-color: #78C36A;
+  transform: scale(1.2);
+}
+
+/* Fixed loading dot animations for all devices */
+.loadingDot {
+  width: 10px;
+  height: 10px;
+  background-color: #E0E0E0;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 4px;
+  animation: dotPulse 1.5s infinite;
+  will-change: transform, background-color;
+}
+
+.loadingDot:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.loadingDot:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes dotPulse {
+  0%, 100% {
+    transform: scale(1);
+    background-color: #E0E0E0;
+  }
+  50% {
+    transform: scale(1.2);
+    background-color: #78C36A;
+  }
+}
+
+/* Animation for logos */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 0.5s forwards;
+}
+
+.fadeOut {
+  animation: fadeOut 0.5s forwards;
+}
+
+@media (max-width: 3000px) and (min-width: 1400px) {
+  .clientSection {
+    padding: 4rem 0;
+    margin-top: -60px;
+    margin-left: 0px;
+    padding-left: 43px;
+  }
+}
+
+/* Responsive adjustments */
+@media (min-width: 1024px) {
+  .sectionContent {
+    padding: 0 2rem; 
+  }
+}
+
+@media (max-width: 992px) {
+  .clientSection {
+    padding: 4rem 0;
+  }
+
+  .logoContainer {
+    gap: 2rem;
+  }
+  
+  .logoItem {
+    flex: 0 0 160px;
+  }
+}
+
+@media (max-width: 768px) {
+  .clientSection {
+    padding: 3rem 0;
+    padding-bottom: 0px;
+  }
+  
+  .sectionHeader h2 {
+    font-size: 2rem;
+  }
+  
+  .logoContainer {
+    gap: 1.5rem;
+  }
+  
+  .logoItem {
+    flex: 0 0 140px;
+  }
+  
+  .dot {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .loadingDot {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .dotNavigation {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .clientSection {
+    padding: 1.5rem 0; /* Reduced padding on mobile */
+  }
+  
+  .sectionContent {
+    padding: 0 0.2rem; /* Much less space from left/right */
+  }
+  
+  .sectionHeader {
+    margin-bottom: 1rem; /* Less space after header */
+  }
+  
+  .sectionHeader h2 {
+    font-size: 1.8rem;
+  }
+  
+  .logoContainer {
+    gap: 0.5rem; /* Reduced gap between logos */
+    padding: 0.3rem 0; /* Less padding top/bottom */
+  }
+  
+  .logoItem {
+    flex: 0 0 180px; /* Much bigger image size on mobile */
+  }
+  
+  .dotNavigation {
+    margin-top: 0.8rem; /* Less space above navigation dots */
+  }
+  
+  .dot {
+    width: 11px; /* Bigger dots on mobile */
+    height: 11px;
+  }
+  
+  .loadingDot {
+    width: 11px;
+    height: 11px;
+    margin: 0 3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .clientSection {
+      padding: 1.5rem 0; /* Reduced padding on mobile */
+      margin-top: 0px;
+      padding-left: 28px;
+  }
+  
+  .sectionContent {
+    padding: 0 0.1rem; /* Almost no side padding */
+  }
+  
+  .sectionHeader h2 {
+    font-size: 1.5rem;
+  }
+  
+  .logoItem {
+    flex: 0 0 200px; /* Maximum size on smallest mobile */
+  }
+  
+  .logo {
+    padding: 0.4rem; /* Less padding inside the logo container */
+  }
+  
+  .logoContainer {
+    gap: 0.3rem; /* Minimum gap between logos */
+  }
+  
+  .loadingDot {
+    margin: 0 2px;
+  }
+}
+
+@media (max-width: 300px) {
+  .clientSection {
+    padding: 1.5rem 0; /* Reduced padding on mobile */
+    margin-top: 0px;
+    padding-left: 28px;
+  }
+  
+  .loadingDot {
+    width: 10px;
+    height: 10px;
+    margin: 0 2px;
+  }
+}

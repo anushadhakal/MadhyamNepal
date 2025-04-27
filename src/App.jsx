@@ -10,6 +10,7 @@ import Contact from './Contact/Contact'
 import Team from './Team/Team'
 import Footer from './Components/Footer'
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import OurClient from './OurClient/OurClient'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,6 +20,7 @@ function App() {
     <Navbar/>
     <Home/>
     <About/>
+    <OurClient/>
     <Services/>
     <Team/>
     <Contact/>

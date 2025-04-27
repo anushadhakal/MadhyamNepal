@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import styles from './Home.module.css';
+import image from "../../assets/heroImg.webp";
 
 const Home = () => {
   const typedTextRef = useRef(null);
@@ -73,7 +74,7 @@ const Home = () => {
         <div className={styles.headerImageDiv}>
           <div className={styles.imageContainer}>
             <img
-              src="https://placehold.co/600x400"
+              src={image}
               alt="A Boy Working on Laptop"
               className={styles.headerImage}
             />

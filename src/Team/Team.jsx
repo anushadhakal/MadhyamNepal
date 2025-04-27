@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Team.module.css';
-import member1 from '../assets/madhyamLogo.webp';
+import ceo from '../assets/ceo.webp';
+// import cto from '../assets/cto.webp';
+import manager from '../assets/manager.webp';
+import contentWriter from '../assets/contentWriter.webp';
+import graphicDesigner from '../assets/graphicDesigner.webp';
 
 export default function Team() {
   const [animate, setAnimate] = useState(false);
@@ -10,52 +14,34 @@ export default function Team() {
   const teamMembers = [
     {
       id: 1,
-      name: "abc xyz",
+      name: "Sandesh Chhetri",
       position: "Founder & CEO",
-      image: member1,
+      image: ceo,
     },
-    {
-      id: 2,
-      name: "abc xyzzz",
-      position: "Creative Director",
-      image: member1,
-    },
+    // {
+    //   id: 2,
+    //   name: "Bimal Bhandari",
+    //   position: "CTO (Chief Technology Officer)",
+    //   image: cto,
+    // },
     {
       id: 3,
-      name: "xyz abc",
-      position: "Marketing Strategist",
-      image: member1,
+      name: "Rohit Chhetri",
+      position: "Manager",
+      image: manager,
     },
     {
       id: 4,
-      name: "xyz abc",
-      position: "Marketing Strategist",
-      image: member1,
+      name: "Sushant Ranabhat",
+      position: "Content Writer",
+      image: contentWriter,
     },
     {
       id: 5,
-      name: "xyz abc",
-      position: "Marketing Strategist",
-      image: member1,
+      name: "Binay Adhikari",
+      position: "Graphic Designer",
+      image: graphicDesigner,
     },
-    {
-      id: 6,
-      name: "xyz abc",
-      position: "Marketing Strategist",
-      image: member1,
-    },
-    {
-      id: 7,
-      name: "xyz abc",
-      position: "Marketing Strategist",
-      image: member1,
-    },
-    {
-      id: 8,
-      name: "xyz abc",
-      position: "Marketing Strategist",
-      image: member1,
-    }
   ];
   
   useEffect(() => {
@@ -85,7 +71,7 @@ export default function Team() {
       });
       
       setActiveIndex(prevIndex => (prevIndex + 1) % teamMembers.length);
-    }, 2000);
+    }, 3000);
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -95,7 +81,6 @@ export default function Team() {
   
   const handleDotClick = (index) => {
     // Calculate how many positions we need to shift the array
-    const currentFirstId = activeMembers[0].id;
     const targetId = teamMembers[index].id;
     
     // Find current position of the target in activeMembers
@@ -112,6 +97,11 @@ export default function Team() {
     
     setActiveMembers(newMembers);
     setActiveIndex(index);
+  };
+  
+  // Helper function to get image class based on member ID
+  const getImageClassName = (memberId) => {
+    return `${styles.memberImage} ${memberId === 5 ? styles.adjustedImage : ''}`;
   };
   
   return (
@@ -137,7 +127,7 @@ export default function Team() {
                 <img 
                   src={member.image} 
                   alt={member.name} 
-                  className={styles.memberImage}
+                  className={getImageClassName(member.id)}
                 />
                 <div className={styles.imageBorder}></div>
               </div>
@@ -150,7 +140,7 @@ export default function Team() {
           ))}
         </div>
         
-        {/* Dot Navigation */}
+        {/* Dot Navigation - Always visible on all devices */}
         <div className={styles.dotNavigation}>
           {teamMembers.map((member, index) => (
             <button

@@ -5,7 +5,7 @@
   color: #333;
   width: 100%;
   box-sizing: border-box;
-  padding-top: 7rem;
+  padding-top: 0rem;
 }
 
 .contactSection * {
@@ -237,6 +237,7 @@
   margin-top: 10px;
 }
 
+
 /* Responsive breakpoints with fluid adjustments */
 @media (min-width: 600px) {
   .formRow {
@@ -292,6 +293,10 @@
   .contactForm {
     min-width: 350px;
   }
+  .contactSection  {
+    margin-top: -100px;
+    
+  }
 }
 
 @media (min-width: 1440px) {
@@ -325,3 +330,4 @@
   color: #d32f2f;
   border-left: 4px solid #f44336;
 }
+ 
