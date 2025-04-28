@@ -1,18 +1,22 @@
 import { useState, useEffect, useRef } from 'react';
 import styles from './Ourclient.module.css';
+import logoOne from '../assets/logo1.webp';
+import logoTwo from '../assets/logo2.webp';
+import logoThree from '../assets/logo3.webp';
+import logoFour from '../assets/logo4.webp';
+import logoFive from '../assets/logo5.webp';
+import logoSix from '../assets/logo6.webp';
+import logoSeven from '../assets/logo7.webp';
 
 // Sample logo data - replace these with your actual client logos
 const clientLogos = [
-  { id: 1, name: 'Company 1', logo: 'https://placehold.co/200x200' },
-  { id: 2, name: 'Company 2', logo: 'https://placehold.co/200x200' },
-  { id: 3, name: 'Company 3', logo: 'https://placehold.co/200x200' },
-  { id: 4, name: 'Company 4', logo: 'https://placehold.co/200x200' },
-  { id: 5, name: 'Company 5', logo: 'https://placehold.co/200x200' },
-  { id: 6, name: 'Company 6', logo: 'https://placehold.co/200x200' },
-  { id: 7, name: 'Company 7', logo: 'https://placehold.co/200x200' },
-  { id: 8, name: 'Company 8', logo: 'https://placehold.co/200x200' },
-  { id: 9, name: 'Company 9', logo: 'https://placehold.co/200x200' },
-  { id: 10, name: 'Company 10', logo: 'https://placehold.co/200x200' },
+  { id: 1, name: 'Company 1', logo: logoOne},
+  { id: 2, name: 'Company 2', logo: logoTwo },
+  { id: 3, name: 'Company 3', logo: logoThree },
+  { id: 4, name: 'Company 4', logo: logoFour },
+  { id: 5, name: 'Company 5', logo: logoFive },
+  { id: 6, name: 'Company 6', logo: logoSix },
+  { id: 7, name: 'Company 7', logo: logoSeven },
 ];
 
 export default function Ourclient() {

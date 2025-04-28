@@ -41,7 +41,8 @@
 }
 
 .logoItem {
-  flex: 0 0 200px;
+  flex: 0 0 240px; /* Increased from 200px */
+  height: 180px; /* Increased from 120px */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,18 +51,15 @@
 
 .logo {
   width: 100%;
-  height: auto;
-  filter: grayscale(100%);
-  transition: filter 0.3s ease, transform 0.3s ease;
-  border-radius: 8px;
-  padding: 0.8rem;
-  background-color: white;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  height: 100%;
+  object-fit: contain; /* This ensures the image maintains its aspect ratio */
+  transition: transform 0.3s ease;
+  background-color: transparent; /* Changed from white to transparent */
+  box-shadow: none; /* Removed box shadow */
 }
 
 .logo:hover {
-  filter: grayscale(0%);
-  transform: scale(1.05);
+  transform: scale(1.1); /* Increased from 1.05 */
 }
 
 /* Dot Navigation Styles */
@@ -182,7 +180,8 @@
   }
   
   .logoItem {
-    flex: 0 0 160px;
+    flex: 0 0 190px; /* Increased from 160px */
+    height: 120px; /* Increased from 100px */
   }
 }
 
@@ -201,7 +200,8 @@
   }
   
   .logoItem {
-    flex: 0 0 140px;
+    flex: 0 0 170px; /* Increased from 140px */
+    height: 110px; /* Increased from 90px */
   }
   
   .dot {
@@ -242,7 +242,8 @@
   }
   
   .logoItem {
-    flex: 0 0 180px; /* Much bigger image size on mobile */
+    flex: 0 0 200px; /* Increased from 180px */
+    height: 120px; /* Increased from 100px */
   }
   
   .dotNavigation {
@@ -277,11 +278,12 @@
   }
   
   .logoItem {
-    flex: 0 0 200px; /* Maximum size on smallest mobile */
+    flex: 0 0 220px; /* Increased from 200px */
+    height: 180px; /* Increased from 110px */
   }
   
   .logo {
-    padding: 0.4rem; /* Less padding inside the logo container */
+    padding: 0; /* Removed padding */
   }
   
   .logoContainer {
@@ -298,6 +300,10 @@
     padding: 1.5rem 0; /* Reduced padding on mobile */
     margin-top: 0px;
     padding-left: 28px;
+  }
+  
+  .logoItem {
+    height: 150px; /* Increased from 90px */
   }
   
   .loadingDot {
