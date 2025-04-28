@@ -152,7 +152,6 @@
   transform: translateY(-3px);
 }
 
-/* Positions for carousel effect */
 .memberCard:nth-child(1) {
   transform: translateX(-110%);
   z-index: 1;
@@ -168,14 +167,12 @@
   z-index: 2;
 }
 
-/* Dot Navigation Styles */
 .dotNavigation {
   display: flex;
   justify-content: center;
   gap: 0.5rem;
   margin-top: 1rem;
   padding: 0.5rem;
-  /* Make sure dots are always visible */
   position: relative;
   z-index: 10;
 }
@@ -201,7 +198,6 @@
   transform: scale(1.2);
 }
 
-/* Animation classes for card transitions */
 @keyframes fadeInLeft {
   from {
     opacity: 0;
@@ -331,14 +327,11 @@
   .memberCard:nth-child(2) {
     position: relative;
   }
-  
-  /* Increase circle size for mobile */
   .memberImageContainer {
     width: 180px;
     height: 180px;
   }
   
-  /* Make dot navigation more prominent on mobile */
   .dotNavigation {
     margin-top: 2rem;
     padding: 1rem;
@@ -366,14 +359,12 @@
   .teamIntro {
     font-size: 1rem;
   }
-  
-  /* Make circles even bigger on smallest screens */
+
   .memberImageContainer {
     width: 200px;
     height: 200px;
   }
-  
-  /* Ensure dots are clearly visible */
+
   .dotNavigation {
     gap: 0.8rem;
   }
@@ -385,7 +376,7 @@
     margin-bottom: 50px;
   }
 }
-/* Only updating the relevant media query section */
+
 
 @media (max-width: 600px) {
   .teamMembers {
@@ -400,8 +391,7 @@
     padding: 1rem 2rem;
   }
   
-  /* IMPORTANT: Modified this section */
-  /* Instead of hiding cards with display:none, adjust their positioning */
+
   .memberCard:nth-child(1),
   .memberCard:nth-child(3) {
     opacity: 0;
@@ -413,18 +403,16 @@
   .memberCard:nth-child(1) {
     position: relative;
     transform: translateX(0);
-    /* Ensure this one is visible */
+
     opacity: 1;
     visibility: visible;
   }
-  
-  /* Increase circle size for mobile */
+
   .memberImageContainer {
     width: 180px;
     height: 180px;
   }
-  
-  /* Make dot navigation more prominent on mobile */
+
   .dotNavigation {
     margin-top: 2rem;
     padding: 1rem;
@@ -440,9 +428,6 @@
   }
 }
 @media (max-width: 600px) {
-  /* ... existing mobile styles ... */
-  
-  /* Instead of hiding side cards, force CEO to be first */
   .memberCard:nth-child(1) {
     transform: translateX(0) !important;
     opacity: 1 !important;
@@ -456,9 +441,8 @@
     display: none !important;
   }
   
-  /* Adjust dot navigation to reflect CEO is first */
   .dotNavigation {
-    order: -1; /* Move dots above the card */
+    order: -1; 
     margin-bottom: 2rem;
   }
 }
