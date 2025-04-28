@@ -1,4 +1,4 @@
-// ContactUs.jsx
+
 import React, { useState } from 'react';
 import styles from './Contact.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -32,8 +32,6 @@ const Contact = () => {
     setStatus(prevStatus => ({ ...prevStatus, submitting: true }));
     
     try {
-      // Replace 'YOUR_FORMSPREE_ENDPOINT' with your actual Formspree form ID
-      // Example: https://formspree.io/f/xrgwjbpo
       const response = await fetch('https://formspree.io/f/mpwpgyva', {
         method: 'POST',
         headers: {

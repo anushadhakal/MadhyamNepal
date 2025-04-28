@@ -8,7 +8,6 @@ import logoFive from '../assets/logo5.webp';
 import logoSix from '../assets/logo6.webp';
 import logoSeven from '../assets/logo7.webp';
 
-// Sample logo data - replace these with your actual client logos
 const clientLogos = [
   { id: 1, name: 'Company 1', logo: logoOne},
   { id: 2, name: 'Company 2', logo: logoTwo },
@@ -24,46 +23,40 @@ export default function Ourclient() {
   const [visibleCount, setVisibleCount] = useState(4);
   const [isMobile, setIsMobile] = useState(false);
   const [totalSlides, setTotalSlides] = useState(clientLogos.length);
-  const [activeDotIndex, setActiveDotIndex] = useState(0); // Track active dot separately for mobile
+  const [activeDotIndex, setActiveDotIndex] = useState(0); 
   const carouselRef = useRef(null);
 
-  // Determine how many logos to display based on screen width
   useEffect(() => {
     const updateVisibleCount = () => {
       if (window.innerWidth >= 992) {
-        setVisibleCount(4); // Large screens
+        setVisibleCount(4); 
         setIsMobile(false);
       } else if (window.innerWidth >= 768) {
-        setVisibleCount(3); // Medium screens
+        setVisibleCount(3); 
         setIsMobile(false);
       } else if (window.innerWidth >= 576) {
-        setVisibleCount(2); // Small screens
+        setVisibleCount(2); 
         setIsMobile(true);
       } else {
-        setVisibleCount(1); // Very small screens
+        setVisibleCount(1); 
         setIsMobile(true);
       }
     };
 
-    // Initial check
     updateVisibleCount();
 
-    // Update on resize
     window.addEventListener('resize', updateVisibleCount);
     return () => window.removeEventListener('resize', updateVisibleCount);
   }, []);
 
-  // Update total slides whenever visibleCount changes
   useEffect(() => {
     setTotalSlides(clientLogos.length);
   }, [visibleCount]);
 
-  // Rotate logos every 2.2 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides);
-      
-      // Toggle active dot in mobile view
+   
       if (isMobile) {
         setActiveDotIndex(prevDotIndex => prevDotIndex === 0 ? 1 : 0);
       } else {
@@ -73,8 +66,6 @@ export default function Ourclient() {
     
     return () => clearInterval(interval);
   }, [totalSlides, currentIndex, isMobile]);
-
-  // Get the current logos to display in a single row
   const getVisibleLogos = () => {
     const logos = [];
     for (let i = 0; i < visibleCount; i++) {
@@ -87,7 +78,6 @@ export default function Ourclient() {
   const handleDotClick = (index) => {
     setCurrentIndex(index);
     
-    // Update active dot index when clicking dots
     if (isMobile) {
       setActiveDotIndex(index === currentIndex ? 0 : 1);
     } else {
@@ -95,10 +85,8 @@ export default function Ourclient() {
     }
   };
 
-  // For mobile, only show 2 dots with proper animation
   const renderDots = () => {
     if (isMobile) {
-      // Just show 2 dots for mobile with proper active state
       return (
         <>
           <button
@@ -114,7 +102,6 @@ export default function Ourclient() {
         </>
       );
     } else {
-      // Show all dots for larger screens
       return Array.from({ length: totalSlides }, (_, idx) => (
         <button
           key={idx}
@@ -125,8 +112,6 @@ export default function Ourclient() {
       ));
     }
   };
-
-  // Loading dots for visual indicator (smaller screens only)
   const renderLoadingDots=()=>{}
 
   return (
@@ -151,12 +136,9 @@ export default function Ourclient() {
           ))}
         </div>
         
-        {/* Dot Navigation with fixed mobile implementation */}
         <div className={styles.dotNavigation}>
           {renderDots()}
         </div>
-        
-        {/* Optional: Add loading indicator for mobile */}
         {renderLoadingDots()}
       </div>
     </section>

@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react"
 import styles from "./Team.module.css"
 import ceo from "../assets/ceo.webp"
-import manager from "../assets/manager.webp"
+import cto from "../assets/cto.webp"
+import manager from "../assets/managerNew.webp"
 import contentWriter from "../assets/contentWriter.webp"
 import graphicDesigner from "../assets/graphicDesigner.webp"
 import videoEditor from "../assets/videoEditor.webp"
@@ -11,13 +12,18 @@ import videoEditor from "../assets/videoEditor.webp"
 export default function Team() {
   const [animate, setAnimate] = useState(false)
   
-  // CEO is always first in the array and must remain at index 0
   const teamMembers = [
     {
       id: 1,
       name: "Sandesh Chhetri",
       position: "Founder & CEO",
       image: ceo,
+    },
+    {
+      id: 2,
+      name: "Bimal Bhandari",
+      position: "CTO (Chief Technology Officer)",
+      image: cto,
     },
     {
       id: 3,
@@ -44,12 +50,9 @@ export default function Team() {
       image: videoEditor,
     },
   ]
-
-  // Start with CEO (index 0) - FORCE this initialization
   const [currentMemberIndex, setCurrentMemberIndex] = useState(() => 0)
 
   useEffect(() => {
-    // Force reset to CEO on component mount to prevent any inconsistency
     setCurrentMemberIndex(0)
     setAnimate(true)
 
@@ -66,15 +69,11 @@ export default function Team() {
     }
 
     window.addEventListener("scroll", handleScroll)
-
-    // Auto-rotation that always returns to CEO after full cycle
     const carouselInterval = setInterval(() => {
       setCurrentMemberIndex(prevIndex => {
-        // If we're at the last member, return to CEO (index 0)
         if (prevIndex === teamMembers.length - 1) {
           return 0
         }
-        // Otherwise move to next member
         return prevIndex + 1
       })
     }, 3000)
@@ -86,7 +85,6 @@ export default function Team() {
   }, [teamMembers.length])
 
   const handleDotClick = (index) => {
-    // Force reset animation to ensure smooth transition
     setAnimate(false)
     setTimeout(() => {
       setCurrentMemberIndex(index)
@@ -95,24 +93,21 @@ export default function Team() {
   }
 
   const getImageClassName = (memberId) => {
-    return `${styles.memberImage} ${memberId === 5 ? styles.adjustedImage : ""}`
+    if (memberId === 2) return `${styles.memberImage} ${styles.ctoImage}`
+    if (memberId === 5) return `${styles.memberImage} ${styles.graphicDesignerImage}`
+    if (memberId === 6) return `${styles.memberImage} ${styles.videoEditorImage}`
+    return styles.memberImage
   }
-
-  // Function to get the three members to display (CEO always first in sequence)
   const getDisplayedMembers = () => {
-    // Always start with current member
     const members = [teamMembers[currentMemberIndex]]
-    
-    // Add next member in sequence
+
     members.push(teamMembers[(currentMemberIndex + 1) % teamMembers.length])
     
-    // Add following member
     members.push(teamMembers[(currentMemberIndex + 2) % teamMembers.length])
     
     return members
   }
 
-  // FORCE CEO to be first on initial render
   const displayedMembers = currentMemberIndex === 0 ? 
     [teamMembers[0], teamMembers[1], teamMembers[2]] : 
     getDisplayedMembers()
