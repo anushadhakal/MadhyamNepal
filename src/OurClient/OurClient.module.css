@@ -42,7 +42,7 @@
 }
 
 .logoItem {
-  flex: 0 0 120px; /* Adjusted to fit 6 logos */
+  flex: 0 0 170px; /* Adjusted to fit 6 logos */
   height: 110px; /* Adjusted to fit 6 logos */
   display: flex;
   justify-content: center;
@@ -55,7 +55,7 @@
   height: 100%;
   object-fit: contain; 
   transition: transform 0.3s ease;
-  background-color: transparent; 
+  background-color: #f8fafc; 
   box-shadow: none; 
 }
 
@@ -161,12 +161,12 @@
   }
   
   .logoItem {
-    flex: 0 0 170px; /* Adjusted to fit 6 logos */
-    height: 130px; /* Adjusted to fit 6 logos */
+    flex: 0 0 180px; /* Increased from 170px */
+    height: 190px; /* Increased from 160px */
   }
   
   .logoContainer {
-    gap: 1.8rem; /* Adjusted to fit 6 logos */
+    gap: 1.2rem;
   }
 }
 
@@ -302,8 +302,8 @@
   }
   
   .logoItem {
-    flex: 0 0 240px;
-    height: 200px;
+    flex: 0 0 270px;
+    height: 220px;
     display: none; /* Hide all logos by default */
   }
   
