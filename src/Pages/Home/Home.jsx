@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import styles from './Home.module.css';
-import image from "../../assets/heroImg.webp";
+import image from "../../assets/heroImage2.webp";
 
 const Home = () => {
   const typedTextRef = useRef(null);

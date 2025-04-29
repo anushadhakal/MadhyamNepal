@@ -9,7 +9,7 @@ import logoSix from '../assets/logo6.webp';
 import logoSeven from '../assets/logo7.webp';
 
 const clientLogos = [
-  { id: 1, name: 'Company 1', logo: logoOne},
+  { id: 1, name: 'Company 1', logo: logoOne },
   { id: 2, name: 'Company 2', logo: logoTwo },
   { id: 3, name: 'Company 3', logo: logoThree },
   { id: 4, name: 'Company 4', logo: logoFour },
@@ -19,76 +19,77 @@ const clientLogos = [
 ];
 
 export default function Ourclient() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [visibleCount, setVisibleCount] = useState(4);
-  const [isMobile, setIsMobile] = useState(false);
-  const [totalSlides, setTotalSlides] = useState(clientLogos.length);
-  const [activeDotIndex, setActiveDotIndex] = useState(0); 
+  // Always show 6 logos, regardless of screen size
+  const visibleCount = 6;
+  const [activeDotIndex, setActiveDotIndex] = useState(0);
+  const [slidePosition, setSlidePosition] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  
   const carouselRef = useRef(null);
+  const totalSlides = clientLogos.length;
 
-  useEffect(() => {
-    const updateVisibleCount = () => {
-      if (window.innerWidth >= 992) {
-        setVisibleCount(4); 
-        setIsMobile(false);
-      } else if (window.innerWidth >= 768) {
-        setVisibleCount(3); 
-        setIsMobile(false);
-      } else if (window.innerWidth >= 576) {
-        setVisibleCount(2); 
-        setIsMobile(true);
-      } else {
-        setVisibleCount(1); 
-        setIsMobile(true);
-      }
-    };
-
-    updateVisibleCount();
-
-    window.addEventListener('resize', updateVisibleCount);
-    return () => window.removeEventListener('resize', updateVisibleCount);
-  }, []);
-
-  useEffect(() => {
-    setTotalSlides(clientLogos.length);
-  }, [visibleCount]);
-
+  // Set up automatic carousel movement
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides);
-      setActiveDotIndex((prevDotIndex) => (prevDotIndex + 1) % totalSlides);
+      if (!isAnimating) {
+        handleNextSlide();
+      }
     }, 2200);
     
     return () => clearInterval(interval);
-  }, [totalSlides]);
+  }, [slidePosition, isAnimating]);
 
-  const getVisibleLogos = () => {
-    const logos = [];
-    for (let i = 0; i < visibleCount; i++) {
-      const index = (currentIndex + i) % clientLogos.length;
-      logos.push(clientLogos[index]);
-    }
-    return logos;
+  // Handle smooth transition to next slide
+  const handleNextSlide = () => {
+    setIsAnimating(true);
+    
+    const nextPosition = (slidePosition + 1) % totalSlides;
+    setSlidePosition(nextPosition);
+    setActiveDotIndex(nextPosition);
+    
+    // Animation ends
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 500);
   };
 
+  // Handle dot navigation
   const handleDotClick = (index) => {
-    setCurrentIndex(index);
+    if (isAnimating || index === activeDotIndex) return;
+    
+    setIsAnimating(true);
+    setSlidePosition(index);
     setActiveDotIndex(index);
+    
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 500);
   };
 
+  // Create a complete circular array of logos for continuous display
+  const getDisplayLogos = () => {
+    // Create array with duplicates to handle the circular rotation
+    const extendedLogos = [...clientLogos, ...clientLogos];
+    
+    // Get the visible slice based on current position
+    return extendedLogos.slice(slidePosition, slidePosition + visibleCount).map((logo, index) => ({
+      ...logo,
+      key: `${logo.id}-${index}-${slidePosition}`
+    }));
+  };
+
+  // Render navigation dots
   const renderDots = () => {
-    // Always show all dots regardless of device size
     return Array.from({ length: totalSlides }, (_, idx) => (
       <button
         key={idx}
         className={`${styles.dot} ${activeDotIndex === idx ? styles.activeDot : ''}`}
         onClick={() => handleDotClick(idx)}
         aria-label={`Go to slide ${idx + 1}`}
+        disabled={isAnimating}
       />
     ));
   };
-
-  const renderLoadingDots = () => {};
 
   return (
     <section className={styles.clientSection}>
@@ -97,16 +98,27 @@ export default function Ourclient() {
           <h2>Our <span>Clients</span></h2>
         </div>
         
-        <div ref={carouselRef} className={styles.logoContainer}>
-          {getVisibleLogos().map((client) => (
+        <div 
+          ref={carouselRef} 
+          className={`${styles.logoContainer} ${isAnimating ? styles.sliding : ''}`}
+          style={{ 
+            '--slide-position': slidePosition,
+            '--transition-speed': '500ms'
+          }}
+        >
+          {getDisplayLogos().map((client) => (
             <div
-              key={client.id}
-              className={`${styles.logoItem} ${styles.fadeIn}`}
+              key={client.key}
+              className={styles.logoItem}
             >
-              <img
+              <img 
                 src={client.logo}
                 alt={`${client.name} logo`}
                 className={styles.logo}
+                loading="lazy"
+                decoding="async"
+                width="140"
+                height="140"
               />
             </div>
           ))}
@@ -115,7 +127,6 @@ export default function Ourclient() {
         <div className={styles.dotNavigation}>
           {renderDots()}
         </div>
-        {renderLoadingDots()}
       </div>
     </section>
   );

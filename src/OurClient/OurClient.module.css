@@ -36,13 +36,14 @@
   width: 100%;
   margin: 0 auto;
   padding: 1rem 0;
-  gap: 3.5rem;
+  gap: 1.8rem; /* Adjusted to fit 6 logos */
   overflow: hidden;
+  position: relative;
 }
 
 .logoItem {
-  flex: 0 0 260px;
-  height: 200px; 
+  flex: 0 0 120px; /* Adjusted to fit 6 logos */
+  height: 110px; /* Adjusted to fit 6 logos */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -158,11 +159,31 @@
     margin-left: 0px;
     padding-left: 43px;
   }
+  
+  .logoItem {
+    flex: 0 0 170px; /* Adjusted to fit 6 logos */
+    height: 130px; /* Adjusted to fit 6 logos */
+  }
+  
+  .logoContainer {
+    gap: 1.8rem; /* Adjusted to fit 6 logos */
+  }
 }
 
 @media (min-width: 1024px) {
   .sectionContent {
     padding: 0 2rem; 
+  }
+}
+
+@media (max-width: 1200px) {
+  .logoItem {
+    flex: 0 0 110px; /* Added to fit 6 logos */
+    height: 100px; /* Added to fit 6 logos */
+  }
+  
+  .logoContainer {
+    gap: 1.5rem; /* Added to fit 6 logos */
   }
 }
 
@@ -172,12 +193,12 @@
   }
 
   .logoContainer {
-    gap: 2rem;
+    gap: 1.2rem; /* Adjusted */
   }
   
   .logoItem {
-    flex: 0 0 210px; 
-    height: 140px; 
+    flex: 0 0 100px; /* Changed from 210px */
+    height: 90px; /* Changed from 140px */
   }
 }
 
@@ -192,12 +213,12 @@
   }
   
   .logoContainer {
-    gap: 1.5rem;
+    gap: 1rem; /* Changed from 1.5rem */
   }
   
   .logoItem {
-    flex: 0 0 190px; 
-    height: 130px;
+    flex: 0 0 90px; /* Changed from 190px */
+    height: 80px; /* Changed from 130px */
   }
   
   .dotNavigation {
@@ -228,13 +249,20 @@
   }
   
   .logoContainer {
-    gap: 0.5rem; 
-    padding: 0.5rem 0; 
+    gap: 0; 
+    padding: 0.5rem 0;
+    justify-content: center;
   }
   
   .logoItem {
     flex: 0 0 220px; 
-    height: 140px; 
+    height: 140px;
+    display: none; /* Hide all logos by default */
+  }
+  
+  .logoItem:first-child {
+    display: flex; /* Show only the first logo */
+    animation: singleItemFade 2s infinite alternate; /* Add animation */
   }
   
   .dotNavigation {
@@ -245,6 +273,16 @@
   .dot {
     width: 7px; 
     height: 7px;
+  }
+  
+  /* Add automatic transition animation */
+  @keyframes singleItemFade {
+    0% {
+      opacity: 0.7;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 }
 
@@ -265,11 +303,17 @@
   
   .logoItem {
     flex: 0 0 240px;
-    height: 200px; 
+    height: 200px;
+    display: none; /* Hide all logos by default */
+  }
+  
+  .logoItem:first-child {
+    display: flex; /* Show only the first logo */
   }
   
   .logoContainer {
-    gap: 0.3rem;
+    gap: 0;
+    justify-content: center;
   }
   
   .dotNavigation {
@@ -291,6 +335,11 @@
   
   .logoItem {
     height: 160px;
+    display: none; /* Hide all logos by default */
+  }
+  
+  .logoItem:first-child {
+    display: flex; /* Show only the first logo */
   }
   
   .dotNavigation {
