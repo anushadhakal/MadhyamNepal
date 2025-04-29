@@ -23,8 +23,8 @@
 
 .sectionContent {
   max-width: 1320px;
-  margin: 0 ;
-  padding: 0 ; /* Standard padding for desktop */
+  margin: 0;
+  padding: 0; 
   width: 100%;
   margin-left: -20px;
 }
@@ -41,8 +41,8 @@
 }
 
 .logoItem {
-  flex: 0 0 240px; /* Increased from 200px */
-  height: 180px; /* Increased from 120px */
+  flex: 0 0 260px;
+  height: 200px; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,17 +52,16 @@
 .logo {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* This ensures the image maintains its aspect ratio */
+  object-fit: contain; 
   transition: transform 0.3s ease;
-  background-color: transparent; /* Changed from white to transparent */
-  box-shadow: none; /* Removed box shadow */
+  background-color: transparent; 
+  box-shadow: none; 
 }
 
 .logo:hover {
-  transform: scale(1.1); /* Increased from 1.05 */
+  transform: scale(1.1); 
 }
 
-/* Dot Navigation Styles */
 .dotNavigation {
   display: flex;
   justify-content: center;
@@ -92,7 +91,6 @@
   transform: scale(1.2);
 }
 
-/* Fixed loading dot animations for all devices */
 .loadingDot {
   width: 10px;
   height: 10px;
@@ -123,7 +121,6 @@
   }
 }
 
-/* Animation for logos */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -163,7 +160,6 @@
   }
 }
 
-/* Responsive adjustments */
 @media (min-width: 1024px) {
   .sectionContent {
     padding: 0 2rem; 
@@ -180,8 +176,8 @@
   }
   
   .logoItem {
-    flex: 0 0 190px; /* Increased from 160px */
-    height: 120px; /* Increased from 100px */
+    flex: 0 0 210px; 
+    height: 140px; 
   }
 }
 
@@ -200,36 +196,31 @@
   }
   
   .logoItem {
-    flex: 0 0 170px; /* Increased from 140px */
-    height: 110px; /* Increased from 90px */
-  }
-  
-  .dot {
-    width: 12px;
-    height: 12px;
-  }
-  
-  .loadingDot {
-    width: 12px;
-    height: 12px;
+    flex: 0 0 190px; 
+    height: 130px;
   }
   
   .dotNavigation {
-    gap: 1.5rem;
+    gap: 0.8rem;
+  }
+  
+  .dot {
+    width: 8px; 
+    height: 8px;
   }
 }
 
 @media (max-width: 576px) {
   .clientSection {
-    padding: 1.5rem 0; /* Reduced padding on mobile */
+    padding: 2rem 0; 
   }
   
   .sectionContent {
-    padding: 0 0.2rem; /* Much less space from left/right */
+    padding: 0 0.5rem; 
   }
   
   .sectionHeader {
-    margin-bottom: 1rem; /* Less space after header */
+    margin-bottom: 1.5rem; 
   }
   
   .sectionHeader h2 {
@@ -237,78 +228,77 @@
   }
   
   .logoContainer {
-    gap: 0.5rem; /* Reduced gap between logos */
-    padding: 0.3rem 0; /* Less padding top/bottom */
+    gap: 0.5rem; 
+    padding: 0.5rem 0; 
   }
   
   .logoItem {
-    flex: 0 0 200px; /* Increased from 180px */
-    height: 120px; /* Increased from 100px */
+    flex: 0 0 220px; 
+    height: 140px; 
   }
   
   .dotNavigation {
-    margin-top: 0.8rem; /* Less space above navigation dots */
+    margin-top: 1.2rem; 
+    gap: 0.6rem; 
   }
   
   .dot {
-    width: 11px; /* Bigger dots on mobile */
-    height: 11px;
-  }
-  
-  .loadingDot {
-    width: 11px;
-    height: 11px;
-    margin: 0 3px;
+    width: 7px; 
+    height: 7px;
   }
 }
 
 @media (max-width: 480px) {
   .clientSection {
-      padding: 1.5rem 0; /* Reduced padding on mobile */
-      margin-top: 0px;
-      padding-left: 28px;
+    padding: 1.8rem 0;
+    margin-top: 0px;
+    padding-left: 20px; 
   }
   
   .sectionContent {
-    padding: 0 0.1rem; /* Almost no side padding */
+    padding: 0 0.3rem; 
   }
   
   .sectionHeader h2 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
   
   .logoItem {
-    flex: 0 0 220px; /* Increased from 200px */
-    height: 180px; /* Increased from 110px */
-  }
-  
-  .logo {
-    padding: 0; /* Removed padding */
+    flex: 0 0 240px;
+    height: 200px; 
   }
   
   .logoContainer {
-    gap: 0.3rem; /* Minimum gap between logos */
+    gap: 0.3rem;
   }
   
-  .loadingDot {
-    margin: 0 2px;
+  .dotNavigation {
+    gap: 0.5rem;
+  }
+  
+  .dot {
+    width: 6px; 
+    height: 6px;
   }
 }
 
 @media (max-width: 300px) {
   .clientSection {
-    padding: 1.5rem 0; /* Reduced padding on mobile */
+    padding: 1.5rem 0;
     margin-top: 0px;
-    padding-left: 28px;
+    padding-left: 15px; 
   }
   
   .logoItem {
-    height: 150px; /* Increased from 90px */
+    height: 160px;
   }
   
-  .loadingDot {
-    width: 10px;
-    height: 10px;
-    margin: 0 2px;
+  .dotNavigation {
+    gap: 0.4rem; 
+  }
+  
+  .dot {
+    width: 5px; 
+    height: 5px;
   }
 }

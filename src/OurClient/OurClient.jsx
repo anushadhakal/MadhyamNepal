@@ -56,16 +56,12 @@ export default function Ourclient() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides);
-   
-      if (isMobile) {
-        setActiveDotIndex(prevDotIndex => prevDotIndex === 0 ? 1 : 0);
-      } else {
-        setActiveDotIndex((currentIndex + 1) % totalSlides);
-      }
+      setActiveDotIndex((prevDotIndex) => (prevDotIndex + 1) % totalSlides);
     }, 2200);
     
     return () => clearInterval(interval);
-  }, [totalSlides, currentIndex, isMobile]);
+  }, [totalSlides]);
+
   const getVisibleLogos = () => {
     const logos = [];
     for (let i = 0; i < visibleCount; i++) {
@@ -77,42 +73,22 @@ export default function Ourclient() {
 
   const handleDotClick = (index) => {
     setCurrentIndex(index);
-    
-    if (isMobile) {
-      setActiveDotIndex(index === currentIndex ? 0 : 1);
-    } else {
-      setActiveDotIndex(index);
-    }
+    setActiveDotIndex(index);
   };
 
   const renderDots = () => {
-    if (isMobile) {
-      return (
-        <>
-          <button
-            className={`${styles.dot} ${activeDotIndex === 0 ? styles.activeDot : ''}`}
-            onClick={() => handleDotClick(currentIndex)}
-            aria-label={`Current position`}
-          />
-          <button
-            className={`${styles.dot} ${activeDotIndex === 1 ? styles.activeDot : ''}`}
-            onClick={() => handleDotClick((currentIndex + 1) % totalSlides)}
-            aria-label={`Next position`}
-          />
-        </>
-      );
-    } else {
-      return Array.from({ length: totalSlides }, (_, idx) => (
-        <button
-          key={idx}
-          className={`${styles.dot} ${currentIndex === idx ? styles.activeDot : ''}`}
-          onClick={() => handleDotClick(idx)}
-          aria-label={`Go to slide ${idx + 1}`}
-        />
-      ));
-    }
+    // Always show all dots regardless of device size
+    return Array.from({ length: totalSlides }, (_, idx) => (
+      <button
+        key={idx}
+        className={`${styles.dot} ${activeDotIndex === idx ? styles.activeDot : ''}`}
+        onClick={() => handleDotClick(idx)}
+        aria-label={`Go to slide ${idx + 1}`}
+      />
+    ));
   };
-  const renderLoadingDots=()=>{}
+
+  const renderLoadingDots = () => {};
 
   return (
     <section className={styles.clientSection}>

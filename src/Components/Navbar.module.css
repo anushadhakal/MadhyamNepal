@@ -127,14 +127,14 @@
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
-  align-items: center; /* Center the mobile nav items horizontally */
-  text-align: center; /* Ensure text inside items is centered */
+  align-items: center; 
+  text-align: center; 
 }
 
 .mobileNavItems .navLink {
   margin: 0.75rem 0;
-  width: 100%; /* Take full width to ensure proper centering */
-  text-align: center; /* Ensure text is centered */
+  width: 100%; 
+  text-align: center;
 }
 
 .mobileScheduleButton {
@@ -145,13 +145,13 @@
   border-radius: 0.375rem;
   padding: 0.75rem;
   margin-top: 1rem;
-  margin-left: 0; /* Remove left margin to center properly */
+  margin-left: 0; 
   font-weight: 500;
   cursor: pointer;
-  width: 80%; /* Reduced from 100% to make it look better centered */
-  max-width: 250px; /* Added to limit width on larger screens */
+  width: 80%; 
+  max-width: 250px; 
   transition: background-color 0.2s ease;
-  text-align: center; /* Ensure text is centered */
+  text-align: center; 
 }
 
 .mobileScheduleButton:hover {
@@ -191,4 +191,12 @@
     height: 60px;
     max-width: 140px;
   }
+}
+@media (max-width: 768px){
+  .scheduleButton {
+    background-color: #78C36A!important;
+}
+.scheduleButton:hover {
+  background-color: #196c04;
+}
 }
