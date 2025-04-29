@@ -10,16 +10,16 @@ import logoSeven from '../assets/logo7.webp';
 
 const clientLogos = [
   { id: 1, name: 'Company 1', logo: logoOne },
-  { id: 2, name: 'Company 2', logo: logoTwo },
+ 
   { id: 3, name: 'Company 3', logo: logoThree },
   { id: 4, name: 'Company 4', logo: logoFour },
+  { id: 2, name: 'Company 2', logo: logoTwo },
   { id: 5, name: 'Company 5', logo: logoFive },
   { id: 6, name: 'Company 6', logo: logoSix },
   { id: 7, name: 'Company 7', logo: logoSeven },
 ];
 
 export default function Ourclient() {
-  // Always show 6 logos, regardless of screen size
   const visibleCount = 6;
   const [activeDotIndex, setActiveDotIndex] = useState(0);
   const [slidePosition, setSlidePosition] = useState(0);
@@ -28,7 +28,6 @@ export default function Ourclient() {
   const carouselRef = useRef(null);
   const totalSlides = clientLogos.length;
 
-  // Set up automatic carousel movement
   useEffect(() => {
     const interval = setInterval(() => {
       if (!isAnimating) {
@@ -39,7 +38,6 @@ export default function Ourclient() {
     return () => clearInterval(interval);
   }, [slidePosition, isAnimating]);
 
-  // Handle smooth transition to next slide
   const handleNextSlide = () => {
     setIsAnimating(true);
     
@@ -47,13 +45,11 @@ export default function Ourclient() {
     setSlidePosition(nextPosition);
     setActiveDotIndex(nextPosition);
     
-    // Animation ends
     setTimeout(() => {
       setIsAnimating(false);
     }, 500);
   };
 
-  // Handle dot navigation
   const handleDotClick = (index) => {
     if (isAnimating || index === activeDotIndex) return;
     
@@ -66,19 +62,16 @@ export default function Ourclient() {
     }, 500);
   };
 
-  // Create a complete circular array of logos for continuous display
   const getDisplayLogos = () => {
-    // Create array with duplicates to handle the circular rotation
+  
     const extendedLogos = [...clientLogos, ...clientLogos];
-    
-    // Get the visible slice based on current position
+ 
     return extendedLogos.slice(slidePosition, slidePosition + visibleCount).map((logo, index) => ({
       ...logo,
       key: `${logo.id}-${index}-${slidePosition}`
     }));
   };
 
-  // Render navigation dots
   const renderDots = () => {
     return Array.from({ length: totalSlides }, (_, idx) => (
       <button
