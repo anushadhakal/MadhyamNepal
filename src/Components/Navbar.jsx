@@ -78,6 +78,7 @@ const Navbar = () => {
           <div className={styles.navItems}>
             {renderLink('home', 'Home')}
             {renderLink('about', 'About')}
+            {renderLink('client', 'Our Clients')}
             {renderLink('services', 'Services')}
             {renderLink('team', 'Team')}
             {renderLink('contact', 'Contact Us')}

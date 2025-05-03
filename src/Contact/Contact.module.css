@@ -5,7 +5,7 @@
   color: #333;
   width: 100%;
   box-sizing: border-box;
-  padding-top: 0rem;
+  padding-top: 7rem;
 }
 
 .contactSection * {
@@ -237,7 +237,6 @@
   margin-top: 10px;
 }
 
-
 /* Responsive breakpoints with fluid adjustments */
 @media (min-width: 600px) {
   .formRow {
@@ -293,10 +292,7 @@
   .contactForm {
     min-width: 350px;
   }
-  .contactSection  {
-    margin-top: -100px;
-    
-  }
+ 
 }
 
 @media (min-width: 1440px) {
@@ -308,6 +304,7 @@
 @media (min-width: 1920px) {
   .contactSection .container {
     max-width: 1600px;
+    margin-top: -20px;
   }
 }
 .formMessage {
@@ -330,4 +327,3 @@
   color: #d32f2f;
   border-left: 4px solid #f44336;
 }
- 

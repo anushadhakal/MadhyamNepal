@@ -1,4 +1,4 @@
-.clientSection {
+/* .clientSection {
   padding: 5rem 0;
   background-color: #FAFAFA;
   color: #1E1E1E;
@@ -36,14 +36,14 @@
   width: 100%;
   margin: 0 auto;
   padding: 1rem 0;
-  gap: 1.8rem; /* Adjusted to fit 6 logos */
+  gap: 1.8rem; 
   overflow: hidden;
   position: relative;
 }
 
 .logoItem {
-  flex: 0 0 170px; /* Adjusted to fit 6 logos */
-  height: 110px; /* Adjusted to fit 6 logos */
+  flex: 0 0 170px; 
+  height: 110px; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -161,6 +161,385 @@
   }
   
   .logoItem {
+    flex: 0 0 180px; 
+    height: 190px; 
+  }
+  
+  .logoContainer {
+    gap: 1.2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sectionContent {
+    padding: 0 2rem; 
+  }
+}
+
+@media (max-width: 1200px) {
+  .logoItem {
+    flex: 0 0 110px; 
+    height: 100px; 
+  }
+  
+  .logoContainer {
+    gap: 1.5rem; 
+  }
+}
+
+@media (max-width: 992px) {
+  .clientSection {
+    padding: 4rem 0;
+  }
+
+  .logoContainer {
+    gap: 1.2rem; 
+  }
+  
+  .logoItem {
+    flex: 0 0 100px; 
+    height: 90px; 
+  }
+}
+
+@media (max-width: 768px) {
+  .clientSection {
+    padding: 3rem 0;
+    padding-bottom: 0px;
+  }
+  
+  .sectionHeader h2 {
+    font-size: 2rem;
+  }
+  
+  .logoContainer {
+    gap: 1rem; 
+  }
+  
+  .logoItem {
+    flex: 0 0 90px; 
+    height: 80px; 
+  }
+  
+  .dotNavigation {
+    gap: 0.8rem;
+  }
+  
+  .dot {
+    width: 8px; 
+    height: 8px;
+  }
+}
+
+@media (max-width: 576px) {
+  .clientSection {
+    padding: 2rem 0; 
+  }
+  
+  .sectionContent {
+    padding: 0 0.5rem; 
+  }
+  
+  .sectionHeader {
+    margin-bottom: 1.5rem; 
+  }
+  
+  .sectionHeader h2 {
+    font-size: 1.8rem;
+  }
+  
+  .logoContainer {
+    gap: 0; 
+    padding: 0.5rem 0;
+    justify-content: center;
+  }
+  
+  .logoItem {
+    flex: 0 0 220px; 
+    height: 140px;
+    display: none; 
+  }
+  
+  .logoItem:first-child {
+    display: flex; 
+    animation: singleItemFade 2s infinite alternate; 
+  }
+  
+  .dotNavigation {
+    margin-top: 1.2rem; 
+    gap: 0.6rem; 
+  }
+  
+  .dot {
+    width: 7px; 
+    height: 7px;
+  }
+  
+  
+  @keyframes singleItemFade {
+    0% {
+      opacity: 0.7;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .clientSection {
+    padding: 1.8rem 0;
+    margin-top: 0px;
+    padding-left: 20px; 
+  }
+  
+  .sectionContent {
+    padding: 0 0.3rem; 
+  }
+  
+  .sectionHeader h2 {
+    font-size: 1.6rem;
+  }
+  
+  .logoItem {
+    flex: 0 0 270px;
+    height: 220px;
+    display: none; 
+  }
+  
+  .logoItem:first-child {
+    display: flex; 
+  }
+  
+  .logoContainer {
+    gap: 0;
+    justify-content: center;
+  }
+  
+  .dotNavigation {
+    gap: 0.5rem;
+  }
+  
+  .dot {
+    width: 6px; 
+    height: 6px;
+  }
+}
+
+@media (max-width: 300px) {
+  .clientSection {
+    padding: 1.5rem 0;
+    margin-top: 0px;
+    padding-left: 15px; 
+  }
+  
+  .logoItem {
+    height: 160px;
+    display: none; 
+  }
+  
+  .logoItem:first-child {
+    display: flex; 
+  }
+  
+  .dotNavigation {
+    gap: 0.4rem; 
+  }
+  
+  .dot {
+    width: 5px; 
+    height: 5px;
+  }
+}  */
+.clientSection {
+  padding: 5rem 0;
+  background-color: #FAFAFA;
+  color: #1E1E1E;
+  overflow: hidden;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sectionHeader h2 {
+  font-size: 2.5rem;
+  position: relative;
+  display: inline-block;
+  color: #1E1E1E;
+}
+
+.sectionHeader h2 span {
+  color: #78C36A;
+}
+
+.sectionContent {
+  max-width: 1320px;
+  margin: 0;
+  padding: 0; 
+  width: 100%;
+  margin-left: -20px;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem 0;
+  gap: 1.8rem; /* Adjusted to fit 6 logos */
+  overflow: hidden;
+  position: relative;
+}
+
+.logoItem {
+  flex: 0 0 170px; /* Adjusted to fit 6 logos */
+  height: 110px; /* Adjusted to fit 6 logos */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; 
+  transition: transform 0.3s ease;
+  background-color: #f8fafc; 
+  box-shadow: none; 
+}
+
+.logo:hover {
+  transform: scale(1.1); 
+}
+
+/* New styles for the rightmost clickable logo */
+.lastLogoItem {
+  cursor: pointer;
+  position: relative;
+}
+
+.nextNavLogo {
+  position: relative;
+}
+
+.nextNavLogo:after {
+  content: "›";
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: #78C36A;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.lastLogoItem:hover .nextNavLogo:after {
+  opacity: 1;
+}
+
+.dotNavigation {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 2rem;
+  padding: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #E0E0E0;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot:hover {
+  background-color: #AAAAAA;
+}
+
+.activeDot {
+  background-color: #78C36A;
+  transform: scale(1.2);
+}
+
+.loadingDot {
+  width: 10px;
+  height: 10px;
+  background-color: #E0E0E0;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 4px;
+  animation: dotPulse 1.5s infinite;
+  will-change: transform, background-color;
+}
+
+.loadingDot:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.loadingDot:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes dotPulse {
+  0%, 100% {
+    transform: scale(1);
+    background-color: #E0E0E0;
+  }
+  50% {
+    transform: scale(1.2);
+    background-color: #78C36A;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 0.5s forwards;
+}
+
+.fadeOut {
+  animation: fadeOut 0.5s forwards;
+}
+
+@media (max-width: 3000px) and (min-width: 1400px) {
+  .clientSection {
+    padding: 4rem 0;
+    margin-top: -20px;
+    margin-left: 0px;
+    padding-left: 43px;
+  }
+  
+  .logoItem {
     flex: 0 0 180px; /* Increased from 170px */
     height: 190px; /* Increased from 160px */
   }
@@ -262,7 +641,22 @@
   
   .logoItem:first-child {
     display: flex; /* Show only the first logo */
-    animation: singleItemFade 2s infinite alternate; /* Add animation */
+  }
+  
+  /* Add navigation indicators for mobile */
+  .logoItem:first-child {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .logoItem:first-child:after {
+    content: "›";
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: #78C36A;
   }
   
   .dotNavigation {
@@ -273,16 +667,6 @@
   .dot {
     width: 7px; 
     height: 7px;
-  }
-  
-  /* Add automatic transition animation */
-  @keyframes singleItemFade {
-    0% {
-      opacity: 0.7;
-    }
-    100% {
-      opacity: 1;
-    }
   }
 }
 
@@ -330,6 +714,7 @@
   .clientSection {
     padding: 1.5rem 0;
     margin-top: 0px;
+   
     padding-left: 15px; 
   }
   

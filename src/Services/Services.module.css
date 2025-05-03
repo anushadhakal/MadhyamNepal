@@ -217,7 +217,7 @@
 /* Responsive Design */
 @media (max-width: 3000px) {
   .servicesSection{
-  margin-top: -90px;
+  margin-top: -40px;
 }}
 @media (max-width: 1200px) {
   .servicesGrid {
@@ -243,7 +243,7 @@
   }
   
   .sectionTitle {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
   
   .iconWrapper {
