@@ -213,6 +213,21 @@ export default function Ourclient() {
     }, 500);
   };
 
+  // Handle smooth transition to previous slide
+  const handlePrevSlide = () => {
+    if (isAnimating) return;
+    
+    setIsAnimating(true);
+    
+    const prevPosition = (slidePosition - 1 + totalSlides) % totalSlides;
+    setSlidePosition(prevPosition);
+    setActiveDotIndex(prevPosition);
+    
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 500);
+  };
+
   // Handle dot navigation
   const handleDotClick = (index) => {
     if (isAnimating || index === activeDotIndex) return;
@@ -232,8 +247,7 @@ export default function Ourclient() {
       // For mobile, only show one logo at a time
       return [clientLogos[slidePosition]].map((logo) => ({
         ...logo,
-        key: `${logo.id}-${slidePosition}`,
-        isLast: false
+        key: `${logo.id}-${slidePosition}`
       }));
     }
     
@@ -241,8 +255,7 @@ export default function Ourclient() {
     const extendedLogos = [...clientLogos, ...clientLogos];
     return extendedLogos.slice(slidePosition, slidePosition + visibleCount).map((logo, index) => ({
       ...logo,
-      key: `${logo.id}-${index}-${slidePosition}`,
-      isLast: index === visibleCount - 1 // Mark the last (rightmost) logo
+      key: `${logo.id}-${index}-${slidePosition}`
     }));
   };
 
@@ -277,25 +290,44 @@ export default function Ourclient() {
           <h2>Our <span>Clients</span></h2>
         </div>
         
-        <div 
-          ref={carouselRef} 
-          className={`${styles.logoContainer} ${isAnimating ? styles.sliding : ''} ${isMobile ? styles.mobileView : ''}`}
-        >
-          {getDisplayLogos().map((client) => (
-            <div
-              key={client.key}
-              className={`${styles.logoItem} ${isAnimating ? isMobile ? styles.fadeIn : '' : ''} ${client.isLast ? styles.lastLogoItem : ''}`}
-              onClick={client.isLast ? handleNextSlide : undefined}
-            >
-              <img 
-                src={client.logo}
-                alt={`${client.name} logo`}
-                className={`${styles.logo} ${client.isLast ? styles.nextNavLogo : ''}`}
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          ))}
+        <div className={styles.carouselContainer}>
+          <button 
+            className={styles.navButton} 
+            onClick={handlePrevSlide}
+            disabled={isAnimating}
+            aria-label="Previous slide"
+          >
+            &lt;
+          </button>
+          
+          <div 
+            ref={carouselRef} 
+            className={`${styles.logoContainer} ${isAnimating ? styles.sliding : ''} ${isMobile ? styles.mobileView : ''}`}
+          >
+            {getDisplayLogos().map((client) => (
+              <div
+                key={client.key}
+                className={`${styles.logoItem} ${isAnimating ? isMobile ? styles.fadeIn : '' : ''}`}
+              >
+                <img 
+                  src={client.logo}
+                  alt={`${client.name} logo`}
+                  className={styles.logo}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            ))}
+          </div>
+          
+          <button 
+            className={styles.navButton} 
+            onClick={handleNextSlide}
+            disabled={isAnimating}
+            aria-label="Next slide"
+          >
+            &gt;
+          </button>
         </div>
         
         <div className={styles.dotNavigation}>

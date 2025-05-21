@@ -382,6 +382,45 @@
   margin-left: -20px;
 }
 
+/* New carousel container for navigation buttons */
+.carouselContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Navigation button styles */
+.navButton {
+  width: 40px;
+  height: 40px;
+  background-color: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #78C36A;
+  transition: all 0.3s ease;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navButton:hover {
+  background-color: #78C36A;
+  color: #FFFFFF;
+  transform: scale(1.1);
+}
+
+.navButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .logoContainer {
   display: flex;
   justify-content: center;
@@ -389,14 +428,16 @@
   width: 100%;
   margin: 0 auto;
   padding: 1rem 0;
-  gap: 1.8rem; /* Adjusted to fit 6 logos */
+  gap: 1.8rem;
   overflow: hidden;
   position: relative;
+  flex: 1;
+  max-width: calc(100% - 100px); /* Make room for navigation buttons */
 }
 
 .logoItem {
-  flex: 0 0 170px; /* Adjusted to fit 6 logos */
-  height: 110px; /* Adjusted to fit 6 logos */
+  flex: 0 0 170px;
+  height: 110px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -414,32 +455,6 @@
 
 .logo:hover {
   transform: scale(1.1); 
-}
-
-/* New styles for the rightmost clickable logo */
-.lastLogoItem {
-  cursor: pointer;
-  position: relative;
-}
-
-.nextNavLogo {
-  position: relative;
-}
-
-.nextNavLogo:after {
-  content: "›";
-  position: absolute;
-  right: -10px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 24px;
-  color: #78C36A;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.lastLogoItem:hover .nextNavLogo:after {
-  opacity: 1;
 }
 
 .dotNavigation {
@@ -540,8 +555,8 @@
   }
   
   .logoItem {
-    flex: 0 0 180px; /* Increased from 170px */
-    height: 190px; /* Increased from 160px */
+    flex: 0 0 180px;
+    height: 190px;
   }
   
   .logoContainer {
@@ -557,12 +572,12 @@
 
 @media (max-width: 1200px) {
   .logoItem {
-    flex: 0 0 110px; /* Added to fit 6 logos */
-    height: 100px; /* Added to fit 6 logos */
+    flex: 0 0 110px;
+    height: 100px;
   }
   
   .logoContainer {
-    gap: 1.5rem; /* Added to fit 6 logos */
+    gap: 1.5rem;
   }
 }
 
@@ -572,12 +587,18 @@
   }
 
   .logoContainer {
-    gap: 1.2rem; /* Adjusted */
+    gap: 1.2rem;
   }
   
   .logoItem {
-    flex: 0 0 100px; /* Changed from 210px */
-    height: 90px; /* Changed from 140px */
+    flex: 0 0 100px;
+    height: 90px;
+  }
+  
+  .navButton {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
   }
 }
 
@@ -592,12 +613,13 @@
   }
   
   .logoContainer {
-    gap: 1rem; /* Changed from 1.5rem */
+    gap: 1rem;
+    max-width: calc(100% - 80px);
   }
   
   .logoItem {
-    flex: 0 0 90px; /* Changed from 190px */
-    height: 80px; /* Changed from 130px */
+    flex: 0 0 90px;
+    height: 80px;
   }
   
   .dotNavigation {
@@ -607,6 +629,12 @@
   .dot {
     width: 8px; 
     height: 8px;
+  }
+  
+  .navButton {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
   }
 }
 
@@ -631,32 +659,13 @@
     gap: 0; 
     padding: 0.5rem 0;
     justify-content: center;
+    max-width: calc(100% - 70px);
   }
   
   .logoItem {
     flex: 0 0 220px; 
     height: 140px;
-    display: none; /* Hide all logos by default */
-  }
-  
-  .logoItem:first-child {
-    display: flex; /* Show only the first logo */
-  }
-  
-  /* Add navigation indicators for mobile */
-  .logoItem:first-child {
-    position: relative;
-    cursor: pointer;
-  }
-  
-  .logoItem:first-child:after {
-    content: "›";
-    position: absolute;
-    right: -15px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 24px;
-    color: #78C36A;
+    display: flex; /* Show only one logo at a time in mobile */
   }
   
   .dotNavigation {
@@ -667,6 +676,12 @@
   .dot {
     width: 7px; 
     height: 7px;
+  }
+  
+  .navButton {
+    width: 28px;
+    height: 28px;
+    font-size: 0.9rem;
   }
 }
 
@@ -688,16 +703,13 @@
   .logoItem {
     flex: 0 0 270px;
     height: 220px;
-    display: none; /* Hide all logos by default */
-  }
-  
-  .logoItem:first-child {
-    display: flex; /* Show only the first logo */
+    display: flex; /* Show only one logo at a time in mobile */
   }
   
   .logoContainer {
     gap: 0;
     justify-content: center;
+    max-width: calc(100% - 60px);
   }
   
   .dotNavigation {
@@ -708,23 +720,24 @@
     width: 6px; 
     height: 6px;
   }
+  
+  .navButton {
+    width: 25px;
+    height: 25px;
+    font-size: 0.8rem;
+  }
 }
 
 @media (max-width: 300px) {
   .clientSection {
     padding: 1.5rem 0;
     margin-top: 0px;
-   
     padding-left: 15px; 
   }
   
   .logoItem {
     height: 160px;
-    display: none; /* Hide all logos by default */
-  }
-  
-  .logoItem:first-child {
-    display: flex; /* Show only the first logo */
+    display: flex; /* Show only one logo at a time in mobile */
   }
   
   .dotNavigation {
@@ -734,5 +747,11 @@
   .dot {
     width: 5px; 
     height: 5px;
+  }
+  
+  .navButton {
+    width: 22px;
+    height: 22px;
+    font-size: 0.7rem;
   }
 }
